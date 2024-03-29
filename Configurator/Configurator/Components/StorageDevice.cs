@@ -6,10 +6,10 @@ using System.Threading.Tasks;
 
 namespace Configurator.Components
 {
-    sealed class ProcessorCooler : PCComponent
+    abstract class StorageDevice : PCComponent
     {
         // Конструктор затычка
-        public ProcessorCooler(string name, decimal price, string manufacturer, int stock) : base(name, price, manufacturer, stock)
+        public StorageDevice(string name, decimal price, string manufacturer, int stock) : base(name, price, manufacturer, stock)
         {
         }
     }

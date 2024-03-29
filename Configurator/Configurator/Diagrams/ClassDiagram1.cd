@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <ClassDiagram MajorVersion="1" MinorVersion="1">
-  <Class Name="Configurator.Components.PCComponent" Collapsed="true">
-    <Position X="19.5" Y="1.75" Width="1.5" />
+  <Class Name="Configurator.Components.PCComponent">
+    <Position X="19.5" Y="0.5" Width="1.75" />
     <TypeIdentifier>
       <HashCode>AAgAAAAAAQAAAAAAAAAAAAQAgAAAAAAAAQAAAAAAAAA=</HashCode>
       <FileName>Components\PCComponent.cs</FileName>
@@ -28,13 +28,6 @@
       <FileName>Components\ComputerCase.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="Configurator.Components.Drive" Collapsed="true">
-    <Position X="18.25" Y="3.5" Width="1.25" />
-    <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>Components\Drive.cs</FileName>
-    </TypeIdentifier>
-  </Class>
   <Class Name="Configurator.Components.GraphicsCard" Collapsed="true">
     <Position X="19.75" Y="3.5" Width="1.25" />
     <TypeIdentifier>
@@ -49,25 +42,46 @@
       <FileName>Components\Motherboard.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="Configurator.Components.ProcessorCooler" Collapsed="true">
-    <Position X="22.75" Y="3.5" Width="1.25" />
-    <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>Components\ProcessorCooler.cs</FileName>
-    </TypeIdentifier>
-  </Class>
-  <Class Name="Configurator.Components.RAM" Collapsed="true">
-    <Position X="24.25" Y="3.5" Width="1.25" />
-    <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>Components\RAM.cs</FileName>
-    </TypeIdentifier>
-  </Class>
   <Class Name="Configurator.Components.SoundCard" Collapsed="true">
     <Position X="25.75" Y="3.5" Width="1.25" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Components\SoundCard.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Configurator.Components.StorageDevice" Collapsed="true">
+    <Position X="18.25" Y="3.5" Width="1.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Components\StorageDevice.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Configurator.Components.HDD" Collapsed="true">
+    <Position X="17.25" Y="5" Width="1.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Components\HDD.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Configurator.Components.SSD" Collapsed="true">
+    <Position X="19.25" Y="5" Width="1.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Components\SSD.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Configurator.Components.CoolingSystem" Collapsed="true">
+    <Position X="22.75" Y="3.5" Width="1.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Components\CoolingSystem.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Configurator.Components.Memory" Collapsed="true">
+    <Position X="24.25" Y="3.5" Width="1.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Components\Memory.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Enum Name="Configurator.Components.ComponentType" Collapsed="true">
