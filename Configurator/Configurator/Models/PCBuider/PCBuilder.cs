@@ -4,9 +4,9 @@ using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Configurator.Components;
+using Configurator.Models.Components;
 
-namespace Configurator.PCBuider
+namespace Configurator.Models.PCBuider
 {
 
     class PCBuilder

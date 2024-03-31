@@ -1,10 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Configurator.Components
+namespace Configurator.Models.Components
 {
     enum ComponentType
     {
@@ -23,6 +25,10 @@ namespace Configurator.Components
     /// </summary>
     abstract class PCComponent
     {
+        protected PCComponent()
+        {
+        }
+
         // Базовый конструктор для всех компонентов
         protected PCComponent(string name, decimal price, string manufacturer, int stock)
         {
@@ -32,10 +38,22 @@ namespace Configurator.Components
             Stock = stock;
         }
         // Базовые свойства для всех компонентов
-        public string Name { get; } = string.Empty;
-        public decimal Price { get; } = 0m;
-        public int Stock { get; } = 0;
-        public string Manufacturer { get; } = string.Empty;
+        [Key]
+        public int Id { get; set; }
+        [Required]
+        [Column(TypeName = "varchar (255)")]
+        public string Name { get; set; } = string.Empty;
+        [Required]
+        [Column(TypeName = "decimal(18, 2)")]
+        public decimal Price { get; set; } = 0m;
+        [Required]
+        [Column(TypeName = "int")]
+        public int Stock { get; set; } = 0;
+        [Required]
+        [Column(TypeName = "varchar (255)")]
+        public string Manufacturer { get; set; } = string.Empty;
+        [Required]
+        [Column(TypeName = "int")]
         public ComponentType Type { get; protected set; }
     }
 }

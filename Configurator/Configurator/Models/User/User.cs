@@ -4,13 +4,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Configurator.Authentication
+namespace Configurator.Models.User
 {
     enum Role
     {
         Unauthorized,
         User,
-        Admin  
+        Admin
     }
     /// <summary>
     /// Класс для хранения данных пользователя
