@@ -11,7 +11,10 @@ namespace Configurator
 {
     class PCComponentDbContext : DbContext
     {
-
+        public PCComponentDbContext()
+        {
+            if (Database.EnsureCreated()) Database.Migrate(); //Если базы данных не существует - создает миграцию
+        }
         public DbSet<Processor> Processors { get; set; }
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
@@ -20,9 +23,10 @@ namespace Configurator
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            base.OnModelCreating(modelBuilder);
+            //base.OnModelCreating(modelBuilder);
 
             modelBuilder.Entity<Processor>()
+                .ToTable("Processors")
                 .HasKey(a => a.Id);
         }
     }

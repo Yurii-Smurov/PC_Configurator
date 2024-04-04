@@ -8,7 +8,9 @@ using Configurator.Models.Components;
 
 namespace Configurator.Models.PCBuider
 {
-
+    /// <summary>
+    /// Класс, содержащий методы для изменения компонентов ПК
+    /// </summary>
     class PCBuilder
     {
         private List<PCComponent> _components = new List<PCComponent>();
@@ -25,9 +27,13 @@ namespace Configurator.Models.PCBuider
             return this;
         }
 
+        /// <summary>
+        /// Метод, возвращающий объект класса PC из подобранных компонентов
+        /// </summary>
+        /// <returns></returns>
         public PC Build()
         {
-            // Дополнительная логика проверки и создания объекта PC
+            // Здесь необходимо реализовать логику проверки(Проверить наличие обязательных компонентов) и создания объекта PC
             return new PC(_components);
         }
 

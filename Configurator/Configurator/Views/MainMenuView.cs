@@ -1,4 +1,5 @@
 ﻿using Configurator.Models.Components;
+using Configurator.Views.Renderers;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,15 +8,27 @@ using System.Threading.Tasks;
 
 namespace Configurator.Views
 {
-    internal class MainMenuView
+    class MainMenuView
     {
+        private readonly IMenuRenderer _menuRenderer;
+
+        public MainMenuView (IMenuRenderer menuRenderer)
+        {
+            _menuRenderer = menuRenderer;
+        }
+
+        /// <summary>
+        /// Метод, который отображает меню и позволяет пользователю сделать выбор.
+        /// </summary>
+        /// <returns>Тип выбранного компонента.</returns>
         public ComponentType DisplayMenuGetSelection()
         {
+            // Инициализация индекса выбранного компонента
             int index = 0;
-
+            // Цикличная отрисовка меню, обработка действий пользователя
             while (true)
             {
-                DrawMenu(index);
+                _menuRenderer.RenderMenu(index);
                 switch (Console.ReadKey(true).Key)
                 {
                     case ConsoleKey.DownArrow:
@@ -30,29 +43,6 @@ namespace Configurator.Views
                         return (ComponentType)index;
                 }
             }
-        }
-
-        private void DrawMenu(int index)
-        {
-
-            Console.Clear();
-
-            Console.WriteLine("Выбрать комплектующее:");
-            Console.WriteLine();
-
-            foreach (ComponentType component in Enum.GetValues(typeof(ComponentType)))
-            {
-                if ((int)component == index)
-                {
-                    Console.BackgroundColor = Console.ForegroundColor;
-                    Console.ForegroundColor = ConsoleColor.Black;
-                }
-
-                Console.WriteLine(component.ToString());
-                Console.ResetColor();
-            }
-            Console.WriteLine();
-            
         }
     }
 }

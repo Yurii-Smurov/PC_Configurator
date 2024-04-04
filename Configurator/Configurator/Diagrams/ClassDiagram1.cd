@@ -56,7 +56,7 @@
       <FileName>Models\Components\PowerUnit.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="Configurator.Models.Components.Processor">
+  <Class Name="Configurator.Models.Components.Processor" Collapsed="true">
     <Position X="28" Y="4" Width="1.25" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAAAA=</HashCode>

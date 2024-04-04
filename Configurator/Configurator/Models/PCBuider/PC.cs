@@ -11,15 +11,19 @@ namespace Configurator.Models.PCBuider
     class PC
     {
         // Свойство - список подобранных комплектующих ПК
-        public List<PCComponent> Components { get; }
-        //конструктор ПК
+        public List<PCComponent> Components { get; set; }
+
+        /// <summary>
+        /// Конструктор ПК
+        /// </summary>
+        /// <param name="components"></param>
         public PC(List<PCComponent> components)
         {
             Components = components;
         }
 
         /// <summary>
-        /// Вывод данных о подобранных комплектующих
+        /// Вывод данных о подобранных комплектующих (Вынести в отдельный класс)
         /// </summary>
         public void PrintComponents()
         {
