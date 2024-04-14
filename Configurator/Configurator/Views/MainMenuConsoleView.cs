@@ -8,11 +8,11 @@ using System.Threading.Tasks;
 
 namespace Configurator.Views
 {
-    class MainMenuView
+    class MainMenuConsoleView
     {
         private readonly IMenuRenderer _menuRenderer;
 
-        public MainMenuView (IMenuRenderer menuRenderer)
+        public MainMenuConsoleView (IMenuRenderer menuRenderer)
         {
             _menuRenderer = menuRenderer;
         }

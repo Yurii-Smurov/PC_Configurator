@@ -16,11 +16,7 @@ namespace Configurator.Models.PCBuider
         private List<PCComponent> _components = new List<PCComponent>();
         public PCBuilder AddComponent(PCComponent component)
         {
-            if (HasComponentOfType(component.Type))
-            {
-                Console.WriteLine($"Компонент типа {component.Type} уже присутствует в сборке.");
-            }
-            else
+            if (!HasComponentOfType(component.Type))
             {
                 _components.Add(component);
             }

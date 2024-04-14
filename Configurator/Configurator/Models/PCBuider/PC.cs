@@ -21,22 +21,5 @@ namespace Configurator.Models.PCBuider
         {
             Components = components;
         }
-
-        /// <summary>
-        /// Вывод данных о подобранных комплектующих (Вынести в отдельный класс)
-        /// </summary>
-        public void PrintComponents()
-        {
-            foreach (var component in Components)
-            {
-                Console.WriteLine($"Component: {component.Name}, Price: {component.Price}, Manufacturer: {component.Manufacturer}, Stock: {component.Stock}");
-
-                if (component is Processor processor)
-                {
-                    Console.WriteLine($"Frequency: {processor.Frequency}");
-                }
-            }
-
-        }
     }
 }

@@ -11,6 +11,7 @@ namespace Configurator.Models.Components
         // Конструктор затычка
         public GraphicsCard(string name, decimal price, string manufacturer, int stock) : base(name, price, manufacturer, stock)
         {
+            Type = ComponentType.GraphicsCard;
         }
     }
 }

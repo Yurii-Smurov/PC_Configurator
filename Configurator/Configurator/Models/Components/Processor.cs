@@ -15,12 +15,13 @@ namespace Configurator.Models.Components
     {
         public Processor()
         {
+            Type = ComponentType.Processor;
         }
 
         public Processor(string name, decimal price, string manufacturer, int stock, int frequency) : base(name, price, manufacturer, stock)
         {
             Frequency = frequency;
-            Type = 0;
+            Type = ComponentType.Processor;
         }
         [Required]
         [Column(TypeName = "int")]

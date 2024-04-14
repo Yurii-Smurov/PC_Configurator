@@ -8,15 +8,15 @@ using System.Threading.Tasks;
 
 namespace Configurator.Controllers
 {
-    internal class MenuController
+    internal class ConsoleMenuController
     {
-        private MainMenuView _view; // Поле для работы с представлением основного меню
+        private MainMenuConsoleView _view; // Поле для работы с представлением основного меню
 
         /// <summary>
-        /// Конструктор класса MenuController.
+        /// Конструктор класса ConsoleMenuController.
         /// </summary>
-        /// <param name="view">Экземпляр класса MainMenuView для представления меню.</param>
-        public MenuController(MainMenuView view)
+        /// <param name="view">Экземпляр класса MainMenuConsoleView для представления меню.</param>
+        public ConsoleMenuController(MainMenuConsoleView view)
         {
             _view = view;
         }
