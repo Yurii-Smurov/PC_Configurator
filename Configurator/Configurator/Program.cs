@@ -12,15 +12,16 @@ class Program
     {
         // Тестирование работы билдера
 
-        /*var pc = new PCBuilder()
+        var pc = new PCBuilder()
             .AddComponent(new Processor("intol", 2000, "sintol", 2000, 300000))
             .AddComponent(new Processor("intal", 2000, "sintol", 2000, 300000))
             .AddComponent(new GraphicsCard("intal", 2000, "sintol", 2000))
+            .RemoveComponent(ComponentType.Processor)
 
             .Build();
 
         ConsolePCPrinter consolePCPrinter = new ConsolePCPrinter();
-        consolePCPrinter.PrintComponents(pc.Components);*/
+        consolePCPrinter.PrintComponents(pc.Components);
 
         // Тестирование миграции и заполнения базы данных через код
 
@@ -43,8 +44,8 @@ class Program
             context.SaveChanges();
         }*/
 
-        var componentListView = new ComponentListConsoleView<Processor>();
-        componentListView.ShowList();
+        //var componentListView = new ComponentListConsoleView<Processor>();
+        //componentListView.ShowList();
 
         /*MainMenuRenderer mainMenuRenderer = new MainMenuRenderer();
         MainMenuConsoleView mainMenuView = new MainMenuConsoleView(mainMenuRenderer);

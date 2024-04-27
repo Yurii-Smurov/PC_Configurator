@@ -11,13 +11,13 @@ namespace Configurator.Models.PCBuider
     class PC
     {
         // Свойство - список подобранных комплектующих ПК
-        public List<PCComponent> Components { get; set; }
+        public IEnumerable<PCComponent> Components { get; set; }
 
         /// <summary>
         /// Конструктор ПК
         /// </summary>
         /// <param name="components"></param>
-        public PC(List<PCComponent> components)
+        public PC(IEnumerable<PCComponent> components)
         {
             Components = components;
         }

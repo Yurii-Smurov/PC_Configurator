@@ -61,7 +61,7 @@ namespace Configurator.Repositories
             }
         }
 
-        public List<T> GetAll()
+        public IEnumerable<T> GetAll()
         {
             using (var _dbContext = new PCComponentDbContext())
             {

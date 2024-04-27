@@ -11,7 +11,7 @@ namespace Configurator.Views
 {
     class ConsolePCPrinter
     {
-        public void PrintComponents(List<PCComponent> components)
+        public void PrintComponents(IEnumerable<PCComponent> components)
         {
             foreach (var component in components)
             {

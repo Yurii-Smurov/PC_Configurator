@@ -13,12 +13,21 @@ namespace Configurator.Models.PCBuider
     /// </summary>
     class PCBuilder
     {
-        private List<PCComponent> _components = new List<PCComponent>();
+        private IEnumerable<PCComponent> _components = new List<PCComponent>();
         public PCBuilder AddComponent(PCComponent component)
         {
             if (!HasComponentOfType(component.Type))
             {
-                _components.Add(component);
+                _components = _components.Concat(new[] { component });
+            }
+            return this;
+        }
+
+        public PCBuilder RemoveComponent(ComponentType componentType)
+        {
+            if (HasComponentOfType(componentType))
+            {
+                _components = _components.Where(c => c.Type != componentType);
             }
             return this;
         }
