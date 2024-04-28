@@ -11,7 +11,7 @@ namespace Configurator.Repositories.Interface
     {
         void Add(User entity); // добавление пользователя
         void Update(User entity); // обновление пользователя
-        User? GetUserByUsername(string username); // поиск пользователя по имени
+        User? GetUserByUsername(string? username); // поиск пользователя по имени
         void Delete(User entity); // удаление пользователя
         IEnumerable<User> GetAll(); // получение всех пользователей
     }

@@ -30,6 +30,9 @@ class Program
         var regView = new RegistrationView();
         regView.Show();
 
+        var authView = new AuthView();
+        authView.Show();
+
         //User user = new User("Нюхатель", "123456", "шило на мыло");
         //var userRepository = new SQLUserRepository(new UserDbContext());
         //userRepository.Add(user);

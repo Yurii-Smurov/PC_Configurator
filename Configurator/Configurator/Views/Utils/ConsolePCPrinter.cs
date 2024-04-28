@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 using Configurator.Models.Components;
 using Configurator.Models.PCBuider;
 
-namespace Configurator.Views
+namespace Configurator.Views.Utils
 {
     class ConsolePCPrinter
     {

@@ -18,13 +18,14 @@ namespace Configurator.Services.RegistrationService
             _userRepository = userRepository;
         }
 
-        public bool RegisterUser(string username, string password, string repeatedPassword, string mail)
+        public bool RegisterUser(string? username, string? password, string? repeatedPassword, string? mail)
         {
             IValidator passwordValidator = new PasswordValidator();
             IValidator loginValidator = new LoginValidator();
             IValidator mailValidator = new MailValidator();
 
-            if (loginValidator.Validate(username) && passwordValidator.Validate(password) && mailValidator.Validate(mail) &&(password == repeatedPassword))
+            if (loginValidator.Validate(username) && passwordValidator.Validate(password) && mailValidator.Validate(mail) 
+                && (password == repeatedPassword))
             {
                 // Создание нового объекта пользователя
                 var user = new User
