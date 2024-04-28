@@ -9,10 +9,22 @@ using System.Threading.Tasks;
 
 namespace Configurator.Views.Auth
 {
-    class AuthView
+    class AuthView : IView
     {
+        public void Next()
+        {
+            throw new NotImplementedException();
+        }
+
+        public void Previous()
+        {
+            throw new NotImplementedException();
+        }
+
         public void Show()
         {
+            Console.Clear();
+
             Console.Write("Введите логин: ");
             string? login = Console.ReadLine();
 

@@ -7,7 +7,7 @@ using Configurator.Models.User;
 
 namespace Configurator.Repositories.Interface
 {
-    internal interface IUserRepository
+    interface IUserRepository
     {
         void Add(User entity); // добавление пользователя
         void Update(User entity); // обновление пользователя

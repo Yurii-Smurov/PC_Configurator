@@ -9,7 +9,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace Configurator.Repositories.MSSQL
 {
-    internal class SQLComponentRepository<T> : IComponentRepository<T>
+    class SQLComponentRepository<T> : IComponentRepository<T>
         where T : PCComponent
     {
         private readonly PCComponentDbContext _dbContext;

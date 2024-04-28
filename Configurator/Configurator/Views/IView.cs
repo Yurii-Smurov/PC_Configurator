@@ -4,9 +4,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Configurator.Models.User
+namespace Configurator.Views
 {
-    class UserSession
+    interface IView
     {
+        void Show();
+        void Next();
+        void Previous();
     }
 }

@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Configurator.Repositories.MSSQL
 {
-    internal class SQLUserRepository : IUserRepository
+    class SQLUserRepository : IUserRepository
     {
         private readonly UserDbContext _dbContext;
         public SQLUserRepository(UserDbContext dbContext)

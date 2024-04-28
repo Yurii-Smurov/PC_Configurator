@@ -10,8 +10,18 @@ using System.Threading.Tasks;
 
 namespace Configurator.Views.Auth
 {
-    class RegistrationView
+    class RegistrationView : IView
     {
+        public void Next()
+        {
+            new AuthView().Show();
+        }
+
+        public void Previous()
+        {
+            new RegistrationView().Show();
+        }
+
         public void Show()
         {
             Console.Write("Введите логин: ");
@@ -43,10 +53,37 @@ namespace Configurator.Views.Auth
             {
                 Console.WriteLine("Аккаунт не зарегистрирован:");
                 Console.WriteLine("Один из пунктов не соответствует заданным требованиям");
+                Console.WriteLine("Повторить повытку регистрации?");
+                Console.WriteLine("1 - да.");
+                Console.WriteLine("2 - нет.");
+
+                int choice;
+                
+                while(!int.TryParse(Console.ReadLine(), out choice))
+                {
+                    Console.WriteLine("Неправильный ввод. Пожалуйста, введите целое число.");
+                }
+
+                while (true)
+                {
+                    switch (choice)
+                    {
+                        case 1:
+                            Previous();
+                            break;
+                        case 2:
+                            Next();
+                            break;
+                        default:
+                            Console.WriteLine("Неверный выбор");
+                            break;
+                    }
+                }
             }
             else
             {
                 Console.WriteLine("Аккаунт зарегистрирован");
+                Next();
             }
         }
     }

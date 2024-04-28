@@ -6,9 +6,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Configurator.Views
+namespace Configurator.Views.Utils
 {
-    class ComponentListConsoleView<T> 
+    class ComponentListConsoleView<T>
         where T : PCComponent
     {
         public void ShowList()

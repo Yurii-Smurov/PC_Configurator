@@ -2,8 +2,6 @@
 using Configurator.Models.Components;
 using Configurator.Models.PCBuider;
 using Configurator.Models.User;
-using Configurator.Controllers;
-using Configurator.Views.Renderers;
 using Configurator.Views;
 using Configurator.Repositories;
 using Configurator.Repositories.MSSQL;
@@ -30,8 +28,8 @@ class Program
         var regView = new RegistrationView();
         regView.Show();
 
-        var authView = new AuthView();
-        authView.Show();
+        /*var authView = new AuthView();
+        authView.Show();*/
 
         //User user = new User("Нюхатель", "123456", "шило на мыло");
         //var userRepository = new SQLUserRepository(new UserDbContext());
