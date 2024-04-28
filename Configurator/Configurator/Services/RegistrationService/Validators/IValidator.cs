@@ -4,9 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Configurator.Models.User
+namespace Configurator.Services.RegistrationService.Validators
 {
-    internal class UserSession
+    interface IValidator
     {
+        public bool Validate(string value);
     }
 }

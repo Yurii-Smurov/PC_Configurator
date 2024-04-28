@@ -1,5 +1,5 @@
 ﻿using Configurator.Models.Components;
-using Configurator.Repositories;
+using Configurator.Repositories.MSSQL;
 using System;
 using System.Collections.Generic;
 using System.Linq;

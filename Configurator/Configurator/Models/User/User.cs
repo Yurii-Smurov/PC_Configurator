@@ -17,6 +17,18 @@ namespace Configurator.Models.User
     /// </summary>
     class User
     {
+        public User()
+        {
+        }
+
+        public User(string username, string password, string email)
+        {
+            Username = username;
+            Password = password;
+            Email = email;
+            UserRole = Role.User;
+        }
+
         public int Id { get; set; }
         public string Username { get; set; }
         public string Password { get; set; }

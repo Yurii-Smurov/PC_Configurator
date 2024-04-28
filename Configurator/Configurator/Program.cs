@@ -1,10 +1,14 @@
 ﻿using Configurator;
 using Configurator.Models.Components;
 using Configurator.Models.PCBuider;
+using Configurator.Models.User;
 using Configurator.Controllers;
 using Configurator.Views.Renderers;
 using Configurator.Views;
 using Configurator.Repositories;
+using Configurator.Repositories.MSSQL;
+using Configurator.Authentication;
+using Configurator.Views.Auth;
 
 class Program
 {
@@ -12,7 +16,7 @@ class Program
     {
         // Тестирование работы билдера
 
-        var pc = new PCBuilder()
+        /*var pc = new PCBuilder()
             .AddComponent(new Processor("intol", 2000, "sintol", 2000, 300000))
             .AddComponent(new Processor("intal", 2000, "sintol", 2000, 300000))
             .AddComponent(new GraphicsCard("intal", 2000, "sintol", 2000))
@@ -21,9 +25,17 @@ class Program
             .Build();
 
         ConsolePCPrinter consolePCPrinter = new ConsolePCPrinter();
-        consolePCPrinter.PrintComponents(pc.Components);
+        consolePCPrinter.PrintComponents(pc.Components);*/
 
-        // Тестирование миграции и заполнения базы данных через код
+        var regView = new RegistrationView();
+        regView.Show();
+
+        //User user = new User("Нюхатель", "123456", "шило на мыло");
+        //var userRepository = new SQLUserRepository(new UserDbContext());
+        //userRepository.Add(user);
+        //userRepository.Delete(userRepository.GetUserByUsername("Нюхатель"));
+
+        // Тестирование миграции и заполнения базы данных комплектующих через код
 
         /*var processorRepository = new SQLComponentRepository<Processor>(new PCComponentDbContext());
         processorRepository.Add(new Processor("intol", 2000, "sintol", 2000, 300000));
