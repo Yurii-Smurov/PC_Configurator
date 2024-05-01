@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 namespace Configurator.Views.Utils
 {
     class ComponentListConsoleView<T>
-        where T : PCComponent
+        where T : PCComponent 
     {
         public void ShowList()
         {

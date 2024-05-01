@@ -6,7 +6,11 @@ using System.Threading.Tasks;
 
 namespace Configurator.Views
 {
-    class ChooseComponent
+    class UserActionsMenu : IView
     {
+        public void Show()
+        {
+            throw new NotImplementedException();
+        }
     }
 }

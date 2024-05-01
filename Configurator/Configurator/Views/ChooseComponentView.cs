@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Configurator.Views.Admin
+namespace Configurator.Views
 {
-    class AddComponentView : IView
+    class ChooseComponentView : IView
     {
         public void Show()
         {

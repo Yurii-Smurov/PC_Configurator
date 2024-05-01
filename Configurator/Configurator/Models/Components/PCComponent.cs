@@ -53,7 +53,6 @@ namespace Configurator.Models.Components
         [Column(TypeName = "varchar (255)")]
         public string Manufacturer { get; set; } = string.Empty;
         [Required]
-        [Column(TypeName = "int")]
         public ComponentType Type { get; protected set; }
     }
 }

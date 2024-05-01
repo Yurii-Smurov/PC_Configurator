@@ -41,21 +41,15 @@ class Program
         /*var processorRepository = new SQLComponentRepository<Processor>(new PCComponentDbContext());
         processorRepository.Add(new Processor("intol", 2000, "sintol", 2000, 300000));
 
+        var gpuRepository = new SQLComponentRepository<GraphicsCard>(new PCComponentDbContext());
+        gpuRepository.Add(new GraphicsCard("intol", 2000, "sintol", 2000));
+
         var processorsList = processorRepository.GetAll();
         foreach (var processor in processorsList)
         {
             Console.WriteLine(processor.Name);
-        }
-
-        var gpuRepository = new SQLComponentRepository<GraphicsCard>(new PCComponentDbContext());
-        gpuRepository.Add(new GraphicsCard("intol", 2000, "sintol", 2000));
-
-        using (var context = new PCComponentDbContext())
-        {
-            var processor = new Processor("intol", 2000, "sintol", 2000, 300000);
-            context.Processors.Add(processor);
-            context.SaveChanges();
         }*/
+
 
         //var componentListView = new ComponentListConsoleView<Processor>();
         //componentListView.ShowList();

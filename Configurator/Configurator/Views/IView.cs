@@ -9,7 +9,5 @@ namespace Configurator.Views
     interface IView
     {
         void Show();
-        void Next();
-        void Previous();
     }
 }

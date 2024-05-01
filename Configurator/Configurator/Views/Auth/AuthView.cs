@@ -11,16 +11,6 @@ namespace Configurator.Views.Auth
 {
     class AuthView : IView
     {
-        public void Next()
-        {
-            throw new NotImplementedException();
-        }
-
-        public void Previous()
-        {
-            throw new NotImplementedException();
-        }
-
         public void Show()
         {
             Console.Clear();

@@ -27,14 +27,20 @@ namespace Configurator
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            //base.OnModelCreating(modelBuilder);
 
             modelBuilder.Entity<Processor>()
                 .ToTable("Processors")
                 .HasKey(a => a.Id);
+            modelBuilder.Entity<Processor>()
+                .Property(p => p.Type)
+                .HasConversion<string>();
+
             modelBuilder.Entity<GraphicsCard>()
                 .ToTable("GraphicCards")
                 .HasKey(a => a.Id);
+            modelBuilder.Entity<GraphicsCard>()
+                .Property(p => p.Type)
+                .HasConversion<string>();
         }
     }
 }

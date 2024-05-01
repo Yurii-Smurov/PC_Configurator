@@ -6,7 +6,11 @@ using System.Threading.Tasks;
 
 namespace Configurator.Views.Admin
 {
-    class DeleteComponentView
+    class DeleteComponentView : IView
     {
+        public void Show()
+        {
+            throw new NotImplementedException();
+        }
     }
 }

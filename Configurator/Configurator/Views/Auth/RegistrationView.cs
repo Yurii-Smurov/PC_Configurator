@@ -12,16 +12,6 @@ namespace Configurator.Views.Auth
 {
     class RegistrationView : IView
     {
-        public void Next()
-        {
-            new AuthView().Show();
-        }
-
-        public void Previous()
-        {
-            new RegistrationView().Show();
-        }
-
         public void Show()
         {
             Console.Write("Введите логин: ");
@@ -69,10 +59,10 @@ namespace Configurator.Views.Auth
                     switch (choice)
                     {
                         case 1:
-                            Previous();
+                            new RegistrationView().Show();
                             break;
                         case 2:
-                            Next();
+                            new AuthView().Show();
                             break;
                         default:
                             Console.WriteLine("Неверный выбор");
@@ -83,7 +73,7 @@ namespace Configurator.Views.Auth
             else
             {
                 Console.WriteLine("Аккаунт зарегистрирован");
-                Next();
+                new AuthView().Show();
             }
         }
     }
