@@ -1,7 +1,7 @@
 ﻿using Configurator.Authentication;
 using Configurator.Services.RegistrationService;
 using Configurator.Repositories.MSSQL;
-using Configurator.Models.User;
+using Configurator.Models.UserModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;

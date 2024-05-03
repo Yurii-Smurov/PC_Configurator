@@ -1,12 +1,14 @@
 ﻿using Configurator;
 using Configurator.Models.Components;
 using Configurator.Models.PCBuider;
-using Configurator.Models.User;
+using Configurator.Models.UserModels;
+using Configurator.Views.Utils;
 using Configurator.Views;
 using Configurator.Repositories;
 using Configurator.Repositories.MSSQL;
 using Configurator.Authentication;
 using Configurator.Views.Auth;
+using Microsoft.EntityFrameworkCore;
 
 class Program
 {
@@ -14,22 +16,30 @@ class Program
     {
         // Тестирование работы билдера
 
+
+
         /*var pc = new PCBuilder()
             .AddComponent(new Processor("intol", 2000, "sintol", 2000, 300000))
             .AddComponent(new Processor("intal", 2000, "sintol", 2000, 300000))
             .AddComponent(new GraphicsCard("intal", 2000, "sintol", 2000))
             .RemoveComponent(ComponentType.Processor)
 
-            .Build();
+            .Build();*/
 
-        ConsolePCPrinter consolePCPrinter = new ConsolePCPrinter();
+        /*ConsolePCPrinter consolePCPrinter = new ConsolePCPrinter();
         consolePCPrinter.PrintComponents(pc.Components);*/
 
-        var regView = new RegistrationView();
-        regView.Show();
+        UserSession.GetInstance().CurrentUser = null;
 
-        /*var authView = new AuthView();
-        authView.Show();*/
+
+        /*var regView = new RegistrationView();
+        regView.Show();*/
+
+        var authView = new AuthView();
+        authView.Show();
+        //Console.Clear();
+        var user =  UserSession.GetInstance().CurrentUser;
+        Console.WriteLine(user.Username);
 
         //User user = new User("Нюхатель", "123456", "шило на мыло");
         //var userRepository = new SQLUserRepository(new UserDbContext());

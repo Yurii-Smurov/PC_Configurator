@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Configurator.Models.User;
+using Configurator.Models.UserModels;
 
 namespace Configurator.Repositories.Interface
 {
