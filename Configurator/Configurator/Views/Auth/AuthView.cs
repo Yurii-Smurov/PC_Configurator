@@ -1,4 +1,5 @@
 ﻿using Configurator.Authentication;
+using Configurator.Models.UserModels;
 using Configurator.Repositories.MSSQL;
 using Configurator.Services.RegistrationService;
 using System;
@@ -27,12 +28,15 @@ namespace Configurator.Views.Auth
 
             var authService = new AuthenticationService(new SQLUserRepository(new UserDbContext()));
 
-            if (authService.AuthenticateUser(login, password) is null) 
+            var user = authService.AuthenticateUser(login, password);
+
+            if (user == null) 
             {
                 Console.WriteLine("Неправильный логин или пароль.");
             }
             else
             {
+                UserSession.GetInstance().CurrentUser = user;
                 Console.WriteLine("Вход выполнен успешно");
             }
         }

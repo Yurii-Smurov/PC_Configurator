@@ -1,4 +1,4 @@
-﻿using Configurator.Models.User;
+﻿using Configurator.Models.UserModels;
 using Configurator.Repositories.Interface;
 using System;
 using System.Collections.Generic;

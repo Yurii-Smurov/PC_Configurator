@@ -1,8 +1,10 @@
 ﻿using Configurator.Models.Components;
+using Configurator.Models.UserModels;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
+using System.Reflection.Metadata;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -12,6 +14,8 @@ namespace Configurator.Models.PCBuider
     {
         // Свойство - список подобранных комплектующих ПК
         public IEnumerable<PCComponent> Components { get; set; }
+        public User User { get; set; } = null!;
+        public int Id { get; set; }
 
         /// <summary>
         /// Конструктор ПК
@@ -20,6 +24,10 @@ namespace Configurator.Models.PCBuider
         public PC(IEnumerable<PCComponent> components)
         {
             Components = components;
+        }
+
+        public PC()
+        {
         }
     }
 }
