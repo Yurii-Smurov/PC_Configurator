@@ -13,15 +13,15 @@ namespace Configurator.Models.PCBuider
     class PC
     {
         // Свойство - список подобранных комплектующих ПК
-        public IEnumerable<PCComponent> Components { get; set; }
+        public ICollection<PCComponent> Components { get; set; }
         public User User { get; set; } = null!;
-        public int Id { get; set; }
+        public int PCId { get; set; }
 
         /// <summary>
         /// Конструктор ПК
         /// </summary>
         /// <param name="components"></param>
-        public PC(IEnumerable<PCComponent> components)
+        public PC(ICollection<PCComponent> components)
         {
             Components = components;
         }

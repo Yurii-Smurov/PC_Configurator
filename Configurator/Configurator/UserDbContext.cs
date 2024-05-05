@@ -8,6 +8,7 @@ using System.Threading.Tasks;
 using Configurator.Models.UserModels;
 using Microsoft.Identity.Client.Extensions.Msal;
 using System.Runtime.Intrinsics.Arm;
+using Configurator.Models.PCBuider;
 
 namespace Configurator
 {
@@ -19,10 +20,12 @@ namespace Configurator
         }
 
         public DbSet<User> Users { get; set; }
+        public DbSet<PC> PCs { get; set; }
+        public DbSet<PCComponent> PCComponents { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlServer("Server=(local);Database=users;Trusted_Connection=True;TrustServerCertificate=True;");
+            optionsBuilder.UseSqlServer("Server=(local);Database=Users;Trusted_Connection=True;TrustServerCertificate=True;");
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
@@ -31,7 +34,39 @@ namespace Configurator
 
             modelBuilder.Entity<User>()
                 .ToTable("Users")
-                .HasKey(a => a.Id);
+                .HasKey(a => a.UserId);
+
+            modelBuilder.Entity<PC>()
+                .ToTable("PCs")
+                .HasKey(a => a.PCId);
+
+            modelBuilder.Entity<PCComponent>()
+                .ToTable("PCComponents");
+
+            modelBuilder.Entity<Processor>()
+                .HasBaseType<PCComponent>();
+
+            modelBuilder.Entity<GraphicsCard>()
+                .HasBaseType<PCComponent>();
+
+            modelBuilder.Entity<Motherboard>()
+                .HasBaseType<PCComponent>();
+
+            modelBuilder.Entity<Memory>()
+                .HasBaseType<PCComponent>();
+
+            modelBuilder.Entity<SSD>()
+                .HasBaseType<PCComponent>();
+
+            modelBuilder.Entity<HDD>()
+                .HasBaseType<PCComponent>();
+
+            modelBuilder.Entity<PowerUnit>()
+                .HasBaseType<PCComponent>();
+
+            modelBuilder.Entity<ComputerCase>()
+                .HasBaseType<PCComponent>();
+
         }
     }
 }

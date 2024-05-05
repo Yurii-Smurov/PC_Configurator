@@ -8,6 +8,6 @@ namespace Configurator.Views
 {
     interface IView
     {
-        void Show();
+        public void Show();
     }
 }

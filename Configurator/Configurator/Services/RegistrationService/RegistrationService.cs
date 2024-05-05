@@ -36,7 +36,7 @@ namespace Configurator.Services.RegistrationService
                     UserRole = Role.User
                 };
                 // Сохранение нового пользователя в базе данных
-                _userRepository.Add(user);
+                _userRepository.AddUser(user);
                 return true;
             }
             else
