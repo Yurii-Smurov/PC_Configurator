@@ -12,6 +12,13 @@ namespace Configurator.Views.Auth
 {
     class AuthView : IView
     {
+        private ViewController _viewController;
+
+        public AuthView(ViewController viewController)
+        {
+            _viewController = viewController;
+        }
+
         public void Show()
         {
             Console.Clear();
@@ -38,6 +45,8 @@ namespace Configurator.Views.Auth
             {
                 UserSession.GetInstance().CurrentUser = user;
                 Console.WriteLine("Вход выполнен успешно");
+                _viewController.ChangeState(new MainMenuView(_viewController));
+                _viewController.ShowCurrentView();
             }
         }
     }

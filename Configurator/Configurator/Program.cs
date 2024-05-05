@@ -29,22 +29,23 @@ class Program
         /*ConsolePCPrinter consolePCPrinter = new ConsolePCPrinter();
         consolePCPrinter.PrintComponents(pc.Components);*/
 
-        UserSession.GetInstance().CurrentUser = null;
+        // Тестирование страницы регистрации
+        ViewController stateController = new ViewController();
+        stateController.ShowCurrentView(); // Отображается начальная страница авторизации.
 
 
-        /*var regView = new RegistrationView();
-        regView.Show();*/
-
-        var authView = new AuthView();
-        authView.Show();
-        //Console.Clear();
-        var user =  UserSession.GetInstance().CurrentUser;
+        // Присваивание переменной user данных о текущем пользователе
+        var user = UserSession.GetInstance().CurrentUser;
         Console.WriteLine(user.Username);
 
-        //User user = new User("Нюхатель", "123456", "шило на мыло");
-        //var userRepository = new SQLUserRepository(new UserDbContext());
-        //userRepository.Add(user);
-        //userRepository.Delete(userRepository.GetUserByUsername("Нюхатель"));
+        // Инициализируем репозиторий для работы с БД пользователей и их сборок компьютеров
+        var userRepository = new SQLUserRepository(new UserDbContext());
+
+        // Метод добавления готовой сборки ПК к учётной записи
+        //userRepository.AddPC(pcSborka, user);
+
+        // Инициализируем утилиту, с помощтю которой будут выводиться данные о готовой сборке ПК/статусе сборки ПК на данный момент
+        ConsolePCPrinter consolePCPrinter = new ConsolePCPrinter();
 
         // Тестирование миграции и заполнения базы данных комплектующих через код
 
