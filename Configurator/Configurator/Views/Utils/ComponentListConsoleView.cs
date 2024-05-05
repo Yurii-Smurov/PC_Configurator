@@ -1,15 +1,15 @@
 ﻿using Configurator.Models.Components;
-using Configurator.Repositories;
+using Configurator.Repositories.MSSQL;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Configurator.Views
+namespace Configurator.Views.Utils
 {
-    class ComponentListConsoleView<T> 
-        where T : PCComponent
+    class ComponentListConsoleView<T>
+        where T : PCComponent 
     {
         public void ShowList()
         {

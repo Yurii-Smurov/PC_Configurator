@@ -3,8 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Configurator.Models.PCBuider;
 
-namespace Configurator.Models.User
+namespace Configurator.Models.UserModels
 {
     enum Role
     {
@@ -17,10 +18,23 @@ namespace Configurator.Models.User
     /// </summary>
     class User
     {
-        public int Id { get; set; }
+        public User()
+        {
+        }
+
+        public User(string username, string password, string email)
+        {
+            Username = username;
+            Password = password;
+            Email = email;
+            UserRole = Role.User;
+        }
+
+        public int UserId { get; set; }
         public string Username { get; set; }
         public string Password { get; set; }
         public string Email { get; set; }
         public Role UserRole { get; set; } = Role.User;
+        public ICollection<PC> PCs { get; } = new List<PC>();
     }
 }

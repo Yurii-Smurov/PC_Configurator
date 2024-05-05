@@ -1,17 +1,32 @@
-﻿using System;
+﻿using Configurator.Repositories.Interface;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Configurator.Models.UserModels;
 
 namespace Configurator.Authentication
 {
     class AuthenticationService
     {
-        public bool AuthenticateUser(string username, string password)
+        private readonly IUserRepository _userRepository;
+
+        public AuthenticationService(IUserRepository userRepository)
         {
-            // Логика аутентификации пользователя
-            return true; // Заглушка, здесь должна быть реальная логика
+            _userRepository = userRepository;
+        }
+
+        /// <summary>
+        /// Метод аутентификации пользователя
+        /// </summary>
+        /// <param name="username"></param>
+        /// <param name="password"></param>
+        /// <returns>Данные о пользователе</returns>
+        public User? AuthenticateUser(string? username, string? password)
+        {
+            var user = _userRepository.GetUserByUsername(username);
+            return user != null && BCrypt.Net.BCrypt.Verify(password, user.Password) ? user : null;
         }
     }
 }

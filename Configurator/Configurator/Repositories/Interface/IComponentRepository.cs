@@ -17,7 +17,7 @@ namespace Configurator.Repositories
         void Add(T entity); // добавление комплектующего
         void Update(T entity); // обновление комплектующего
         void Delete(T entity); // удаление комплектующего по id
-        T GetComponent(int id); // получение одного комплектующего по id
+        T? GetComponent(int id); // получение одного комплектующего по id
         IEnumerable<T> GetAll(); // получение всех комплектующих
     }
 }

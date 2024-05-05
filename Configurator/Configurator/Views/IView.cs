@@ -4,9 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Configurator.Models.User
+namespace Configurator.Views
 {
-    internal class UserSession
+    interface IView
     {
+        public void Show();
     }
 }

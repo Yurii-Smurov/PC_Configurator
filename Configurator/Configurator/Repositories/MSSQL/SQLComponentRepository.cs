@@ -7,9 +7,9 @@ using System.Text;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 
-namespace Configurator.Repositories
+namespace Configurator.Repositories.MSSQL
 {
-    internal class SQLComponentRepository<T> : IComponentRepository<T>
+    class SQLComponentRepository<T> : IComponentRepository<T>
         where T : PCComponent
     {
         private readonly PCComponentDbContext _dbContext;
@@ -52,7 +52,7 @@ namespace Configurator.Repositories
             }
         }
 
-        public T GetComponent(int id)
+        public T? GetComponent(int id)
         {
             using (var _dbContext = new PCComponentDbContext())
             {

@@ -7,11 +7,11 @@ using System.Threading.Tasks;
 using Configurator.Models.Components;
 using Configurator.Models.PCBuider;
 
-namespace Configurator.Views
+namespace Configurator.Views.Utils
 {
     class ConsolePCPrinter
     {
-        public void PrintComponents(IEnumerable<PCComponent> components)
+        public void PrintComponents(ICollection<PCComponent> components)
         {
             foreach (var component in components)
             {
