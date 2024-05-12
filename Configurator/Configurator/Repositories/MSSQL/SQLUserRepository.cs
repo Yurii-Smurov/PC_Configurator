@@ -1,10 +1,13 @@
 ﻿using Configurator.Models.UserModels;
 using Configurator.Repositories.Interface;
+using Configurator.Models.PCBuider;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Microsoft.EntityFrameworkCore;
+using Configurator.Models.Components;
 
 namespace Configurator.Repositories.MSSQL
 {
@@ -16,7 +19,7 @@ namespace Configurator.Repositories.MSSQL
             _dbContext = dbContext;
         }
 
-        public void Add(User entity)
+        public void AddUser(User entity)
         {
             using (var _dbContext = new UserDbContext())
             {
@@ -27,33 +30,43 @@ namespace Configurator.Repositories.MSSQL
             }
         }
 
-        public void Delete(User entity)
+        public void DeleteUser(User entity)
         {
             using (var _dbContext = new UserDbContext())
             {
-                // Логика добавления компонента в контекст БД
-                _dbContext.Set<User>().Remove(entity);
-                // сохранение изменений сделанных в контексте БД в саму БД
-                _dbContext.SaveChanges();
+                throw new NotImplementedException();
             }
         }
 
         public User? GetUserByUsername (string username)
         {
-            using (var dbContext = new UserDbContext())
-            {
-                return dbContext.Users.FirstOrDefault(u => u.Username == username);
-            }
+                return _dbContext.Users
+                    .Include(u => u.PCs)
+                    .ThenInclude(pc => pc.Components)
+                    .FirstOrDefault(u => u.Username == username);
         }
 
-        public IEnumerable<User> GetAll()
+        public void UpdateUser(User entity)
         {
             throw new NotImplementedException();
         }
 
-        public void Update(User entity)
+        public void AddPC(PC pc, User user)
         {
-            throw new NotImplementedException();
+            pc.User = _dbContext.Users.First(u => u.UserId == user.UserId);
+            _dbContext.PCs.Add(pc);
+            _dbContext.SaveChanges();
+        }
+
+        public void DeletePC(int pcId, User user)
+        {
+            var pc = _dbContext.PCs
+            .Include(pc => pc.Components)
+            .FirstOrDefault(pc => pc.PCId == pcId);
+
+            _dbContext.PCComponents.RemoveRange(pc.Components);
+            _dbContext.PCs.Remove(pc);
+            _dbContext.SaveChanges();
         }
     }
 }

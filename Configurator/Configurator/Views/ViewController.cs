@@ -26,5 +26,4 @@ namespace Configurator.Views
             _currentView.Show();
         }
     }
-
 }

@@ -1,0 +1,125 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="Configurator.Models.Components.ComputerCase" Collapsed="true">
+    <Position X="17.5" Y="4" Width="1.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\Components\ComputerCase.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Configurator.Models.Components.CoolingSystem" Collapsed="true">
+    <Position X="24.5" Y="4" Width="1.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\Components\CoolingSystem.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Configurator.Models.Components.GraphicsCard" Collapsed="true">
+    <Position X="29.75" Y="4" Width="1.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\Components\GraphicsCard.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Configurator.Models.Components.HDD" Collapsed="true">
+    <Position X="21.75" Y="5.5" Width="1.25" />
+    <InheritanceLine Type="Configurator.Models.Components.StorageDevice" ManuallyRouted="true">
+      <Path>
+        <Point X="23.375" Y="4.691" />
+        <Point X="23.375" Y="5.125" />
+        <Point X="22.745" Y="5.125" />
+        <Point X="22.745" Y="5.5" />
+        <Point X="22.375" Y="5.5" />
+      </Path>
+    </InheritanceLine>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\Components\HDD.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Configurator.Models.Components.Memory" Collapsed="true">
+    <Position X="19.25" Y="4" Width="1.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\Components\Memory.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Configurator.Models.Components.Motherboard" Collapsed="true">
+    <Position X="26.25" Y="4" Width="1.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\Components\Motherboard.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Configurator.Models.Components.PCComponent" Collapsed="true">
+    <Position X="23.5" Y="2.25" Width="1.25" />
+    <TypeIdentifier>
+      <HashCode>AAgCAAAAAQAAAAAAAAAAAAQAgAAAAAAAAQAAAAAAAAA=</HashCode>
+      <FileName>Models\Components\PCComponent.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Configurator.Models.Components.PowerUnit" Collapsed="true">
+    <Position X="21" Y="4" Width="1.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\Components\PowerUnit.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Configurator.Models.Components.Processor" Collapsed="true">
+    <Position X="28" Y="4" Width="1.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\Components\Processor.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Configurator.Models.Components.SoundCard" Collapsed="true">
+    <Position X="31.5" Y="4" Width="1.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\Components\SoundCard.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Configurator.Models.Components.SSD" Collapsed="true">
+    <Position X="23.25" Y="5.5" Width="1.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\Components\SSD.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Configurator.Models.Components.StorageDevice" Collapsed="true">
+    <Position X="22.75" Y="4" Width="1.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\Components\StorageDevice.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Configurator.Models.Components.AirCoolingSystem" Collapsed="true">
+    <Position X="24.75" Y="5.5" Width="1.25" />
+    <InheritanceLine Type="Configurator.Models.Components.CoolingSystem" ManuallyRouted="true">
+      <Path>
+        <Point X="25.125" Y="4.691" />
+        <Point X="25.125" Y="5.5" />
+        <Point X="25.375" Y="5.5" />
+      </Path>
+    </InheritanceLine>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\Components\AirCoolingSystem.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Configurator.Models.Components.LiquidCoolingSystem" Collapsed="true">
+    <Position X="26.25" Y="5.5" Width="1.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\Components\LiquidCoolingSystem.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Enum Name="Configurator.Models.Components.ComponentType">
+    <Position X="26" Y="0.75" Width="1.25" />
+    <TypeIdentifier>
+      <HashCode>AAAgABAAAAAAAAAAAAAAAAAAAAAIoAAAAAAAAUAEAAg=</HashCode>
+      <FileName>Models\Components\PCComponent.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>
