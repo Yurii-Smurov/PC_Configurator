@@ -30,14 +30,14 @@ class Program
         ViewController stateController = new ViewController();
         stateController.ShowCurrentView(); // Отображается начальная страница авторизации.
         // Присваивание переменной user данных о текущем пользователе
-        var user = UserSession.GetInstance().CurrentUser;
-        Console.WriteLine(user.Username);
+        //var user = UserSession.GetInstance().CurrentUser;
+        Console.WriteLine(UserSession.GetInstance().CurrentUser.Username);
 
         // Инициализируем репозиторий для работы с БД пользователей и их сборок компьютеров
         var userRepository = new SQLUserRepository(new UserDbContext());
 
         // Метод добавления готовой сборки ПК к учётной записи
-        userRepository.AddPC(pcSborka, user);
+        //userRepository.AddPC(pcSborka, UserSession.GetInstance().CurrentUser);
 
         // Инициализируем утилиту, с помощтю которой будут выводиться данные о готовой сборке ПК/статусе сборки ПК на данный момент
         ConsolePCPrinter consolePCPrinter = new ConsolePCPrinter();
@@ -45,9 +45,9 @@ class Program
         // Тестирование получения данных из БД пользователей(UserName получаем из таблицы уч.записей,
         // PCId - из таблицы ПК, закреплённых за пользователем, Components - из таблицы комплектующих,
         // закреплённых за сборкой ПК)
-        foreach (var pc in user.PCs)
+        foreach (var pc in UserSession.GetInstance().CurrentUser.PCs)
         {
-            Console.WriteLine($"Сборка пользователя {user.Username}: {pc.PCId}");
+            Console.WriteLine($"Сборка пользователя {UserSession.GetInstance().CurrentUser.Username}: {pc.PCId}");
             consolePCPrinter.PrintComponents(pc.Components);
             Console.WriteLine();
         }

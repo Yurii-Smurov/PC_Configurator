@@ -9,9 +9,9 @@ namespace Configurator.Models.UserModels
 {
     enum Role
     {
-        Unauthorized,
         User,
-        Admin
+        Admin,
+        Director
     }
     /// <summary>
     /// Класс для хранения данных пользователя
