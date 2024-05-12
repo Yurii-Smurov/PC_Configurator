@@ -8,8 +8,14 @@ namespace Configurator.Models.Components
 {
     sealed class SSD : StorageDevice
     {
-        public SSD(string name, decimal price, string manufacturer, int stock) : base(name, price, manufacturer, stock)
+        public SSD()
         {
+            Type = ComponentType.SSD;
+        }
+
+        public SSD(string form, string speed, string volume) : base(form, speed, volume)
+        {
+            Type = ComponentType.SSD;
         }
     }
 }

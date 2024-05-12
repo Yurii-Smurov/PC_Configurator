@@ -8,8 +8,14 @@ namespace Configurator.Models.Components
 {
     class LiquidCoolingSystem : CoolingSystem
     {
-        public LiquidCoolingSystem(string name, decimal price, string manufacturer, int stock) : base(name, price, manufacturer, stock)
+        public LiquidCoolingSystem()
         {
+            Type = ComponentType.LiquidCoolingSystem;
+        }
+
+        public LiquidCoolingSystem(string socket, int speed, int tdpDIS) : base(socket, speed, tdpDIS)
+        {
+            Type = ComponentType.LiquidCoolingSystem;
         }
     }
 }

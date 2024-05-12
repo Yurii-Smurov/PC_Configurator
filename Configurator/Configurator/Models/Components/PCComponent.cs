@@ -11,13 +11,15 @@ namespace Configurator.Models.Components
     enum ComponentType
     {
         Processor,
-        ProcessorCooler,
+        AirCoolingSystem,
+        LiquidCoolingSystem,
         Motherboard,
         GraphicsCard,
         PowerUnit,
-        Drive,
+        HDD,
+        SSD,
         ComputerCase,
-        RAM,
+        Memory,
         SoundCard
     }
     /// <summary>

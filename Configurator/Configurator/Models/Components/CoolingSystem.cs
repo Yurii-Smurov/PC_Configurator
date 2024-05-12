@@ -9,8 +9,22 @@ namespace Configurator.Models.Components
     abstract class CoolingSystem : PCComponent
     {
         // Конструктор затычка
-        public CoolingSystem(string name, decimal price, string manufacturer, int stock) : base(name, price, manufacturer, stock)
+
+        public CoolingSystem()
         {
+            
         }
+
+        public CoolingSystem(string socket, int speed, int tdpDIS)
+        {
+            Socket = socket;
+            Speed = speed;
+            TdpDIS = tdpDIS;
+        }
+
+        public string Socket { get; set; }
+        public int Speed { get; set; }
+        public int TdpDIS { get; set; }
     }
+    
 }

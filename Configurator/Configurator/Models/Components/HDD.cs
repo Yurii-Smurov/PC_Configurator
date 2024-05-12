@@ -8,8 +8,14 @@ namespace Configurator.Models.Components
 {
     sealed class HDD : StorageDevice
     {
-        public HDD(string name, decimal price, string manufacturer, int stock) : base(name, price, manufacturer, stock)
+        public HDD()
         {
+            Type = ComponentType.HDD;
+        }
+
+        public HDD(string form, string speed, string volume) : base(form, speed, volume)
+        {
+            Type = ComponentType.HDD;
         }
     }
 }

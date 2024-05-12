@@ -8,9 +8,20 @@ namespace Configurator.Models.Components
 {
     sealed class SoundCard : PCComponent
     {
-        // Конструктор затычка
-        public SoundCard(string name, decimal price, string manufacturer, int stock) : base(name, price, manufacturer, stock)
+        public SoundCard()
         {
+            Type = ComponentType.SoundCard;
         }
+
+        public SoundCard(string form)
+        {
+            Form = form;
+
+            Type = ComponentType.SoundCard;
+        }
+
+        // Конструктор затычка
+
+        public string Form {  get; set; }
     }
 }

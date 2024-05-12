@@ -8,9 +8,28 @@ namespace Configurator.Models.Components
 {
     sealed class Memory : PCComponent
     {
-        // Конструктор затычка
-        public Memory(string name, decimal price, string manufacturer, int stock) : base(name, price, manufacturer, stock)
+        public Memory()
         {
+            Type = ComponentType.Memory;
         }
+
+        public Memory(bool dDR4, bool dDR5, int freq, int volume)
+        {
+            DDR4 = dDR4;
+            DDR5 = dDR5;
+            Freq = freq;
+            Volume = volume;
+
+            Type = ComponentType.Memory;
+        }
+
+
+
+        // Конструктор затычка
+
+        public bool DDR4 { get; set; }
+        public bool DDR5 { get; set; }
+        public int Freq { get; set; }
+        public int Volume { get; set; }
     }
 }

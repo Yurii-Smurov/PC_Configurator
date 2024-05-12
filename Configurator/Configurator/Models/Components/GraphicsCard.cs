@@ -8,10 +8,20 @@ namespace Configurator.Models.Components
 {
     sealed class GraphicsCard : PCComponent
     {
-        // Конструктор затычка
+        public GraphicsCard()
+        {
+            Type = ComponentType.GraphicsCard;
+        }
+
         public GraphicsCard(string name, decimal price, string manufacturer, int stock) : base(name, price, manufacturer, stock)
         {
             Type = ComponentType.GraphicsCard;
         }
+
+        public string ModelGPU { get; set; }
+        public string TypeMEM { get; set; }
+        public int Freq { get; set; }
+        public int Volume { get; set; }
+
     }
 }
