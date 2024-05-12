@@ -11,7 +11,8 @@ namespace Configurator.Services.RegistrationService.Validators
     {
         // Регулярные выражения для условий почты
         private readonly Regex hasMiniMaxChars = new Regex(@".{6,30}");
-        private readonly Regex hasStructure = new Regex(@"^\w+(\@\w+\.\w+)$");
+        private readonly Regex hasStructure = new Regex(@"^(?("")(""[^""]+?""@)|(([0-9a-z]((\.(?!\.))|[-!#\$%&'\*\+/=\?\^`\{\}\|~\w])*)(?<=[0-9a-z])@))" +
+                @"(?(\[)(\[(\d{1,3}\.){3}\d{1,3}\])|(([0-9a-z][-\w]*[0-9a-z]*\.)+[a-z0-9]{2,17}))$");
 
         public bool Validate(string password)
         {
