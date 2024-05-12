@@ -1,17 +1,28 @@
 ﻿using Configurator.Authentication;
 using Configurator.Services.RegistrationService;
 using Configurator.Repositories.MSSQL;
+using Configurator.Repositories.Interface;
 using Configurator.Models.UserModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Runtime.Serialization;
 
 namespace Configurator.Views.Auth
 {
     class RegistrationView : IView
     {
+        private ViewController _viewController;
+        private IUserRepository _userRepository;
+        
+        public RegistrationView(ViewController viewController)
+        {
+            _viewController = viewController;
+            _userRepository = new SQLUserRepository(new UserDbContext());
+        }
+
         public void Show()
         {
             Console.Write("Введите логин: ");
@@ -36,44 +47,52 @@ namespace Configurator.Views.Auth
             Console.Write("Введите свою почту: ");
             string? email = Console.ReadLine();
 
-            Console.Clear();
-
-            var regService = new RegistrationService(new SQLUserRepository(new UserDbContext()));
+            var regService = new RegistrationService(_userRepository);
             if (!regService.RegisterUser(login, password, repeatedPassword, email))
             {
-                Console.WriteLine("Аккаунт не зарегистрирован:");
-                Console.WriteLine("Один из пунктов не соответствует заданным требованиям");
-                Console.WriteLine("Повторить повытку регистрации?");
-                Console.WriteLine("1 - да.");
-                Console.WriteLine("2 - нет.");
-
                 int choice;
-                
-                while(!int.TryParse(Console.ReadLine(), out choice))
-                {
-                    Console.WriteLine("Неправильный ввод. Пожалуйста, введите целое число.");
-                }
 
                 while (true)
                 {
+                    Console.WriteLine("Аккаунт не зарегистрирован:");
+                    Console.WriteLine("Один из пунктов не соответствует заданным требованиям");
+                    Console.WriteLine("Также возможно, что аккаунт с таким именем пользователя уже существует");
+                    Console.WriteLine();
+                    Console.WriteLine("Повторить попытку регистрации?");
+                    Console.WriteLine("1 - да.");
+                    Console.WriteLine("2 - нет.");
+                    while (!int.TryParse(Console.ReadLine(), out choice))
+                    {
+                        Console.WriteLine("Неправильный ввод. Пожалуйста, введите целое число.");
+                    }
+
                     switch (choice)
                     {
                         case 1:
-                            new RegistrationView().Show();
+                            _viewController.ChangeState(new RegistrationView(_viewController));
+                            _viewController.ShowCurrentView();
                             break;
                         case 2:
-                            new AuthView().Show();
+                            _viewController.ChangeState(new AuthView(_viewController));
+                            _viewController.ShowCurrentView();
                             break;
                         default:
                             Console.WriteLine("Неверный выбор");
                             break;
                     }
+
+                    if (choice == 1 || choice == 2)
+                    {
+                        break;
+                    }
+
                 }
             }
             else
             {
-                Console.WriteLine("Аккаунт зарегистрирован");
-                new AuthView().Show();
+                Console.WriteLine("Аккаунт зарегистрирован!");
+                _viewController.ChangeState(new AuthView(_viewController));
+                _viewController.ShowCurrentView();
             }
         }
     }

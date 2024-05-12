@@ -8,9 +8,17 @@ namespace Configurator.Views
 {
     class MainMenuView : IView
     {
+        private ViewController _viewController;
+
+        public MainMenuView(ViewController viewController)
+        {
+            _viewController = viewController;
+        }
+
         public void Show()
         {
-            throw new NotImplementedException();
+            Console.Clear();
+            Console.WriteLine("Главная страница");
         }
     }
 }

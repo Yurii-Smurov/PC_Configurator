@@ -21,18 +21,14 @@ class Program
             .AddComponent(new Processor("intal", 2000, "sintol", 2000, 300000))
             .AddComponent(new GraphicsCard("intal", 2000, "sintol", 2000))
             .RemoveComponent(ComponentType.Processor)
-
             .Build();
 
+        /*ConsolePCPrinter consolePCPrinter = new ConsolePCPrinter();
+        consolePCPrinter.PrintComponents(pc.Components);*/
 
         // Тестирование страницы регистрации
-        /*var regView = new RegistrationView();
-        regView.Show();*/
-
-        // Тестирование страницы аутентификации
-        var authView = new AuthView();
-        authView.Show();
-
+        ViewController stateController = new ViewController();
+        stateController.ShowCurrentView(); // Отображается начальная страница авторизации.
         // Присваивание переменной user данных о текущем пользователе
         var user = UserSession.GetInstance().CurrentUser;
         Console.WriteLine(user.Username);

@@ -25,7 +25,7 @@ namespace Configurator.Services.RegistrationService
             IValidator mailValidator = new MailValidator();
 
             if (loginValidator.Validate(username) && passwordValidator.Validate(password) && mailValidator.Validate(mail) 
-                && (password == repeatedPassword))
+                && (password == repeatedPassword) && _userRepository.GetUserByUsername(username) == null)
             {
                 // Создание нового объекта пользователя
                 var user = new User
