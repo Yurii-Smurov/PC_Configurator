@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.EntityFrameworkCore.Metadata.Internal;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -13,8 +14,13 @@ namespace Configurator.Models.Components
             Type = ComponentType.GraphicsCard;
         }
 
-        public GraphicsCard(string name, decimal price, string manufacturer, int stock) : base(name, price, manufacturer, stock)
+        public GraphicsCard(string name, decimal price, string manufacturer, int stock, string modelGPU, string typeMEM, int freq, int volume) : base(name, price, manufacturer, stock)
         {
+            ModelGPU = modelGPU;
+            TypeMEM = typeMEM;
+            Freq = freq;
+            Volume = volume;
+
             Type = ComponentType.GraphicsCard;
         }
 

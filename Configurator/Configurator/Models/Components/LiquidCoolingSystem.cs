@@ -13,7 +13,7 @@ namespace Configurator.Models.Components
             Type = ComponentType.LiquidCoolingSystem;
         }
 
-        public LiquidCoolingSystem(string socket, int speed, int tdpDIS) : base(socket, speed, tdpDIS)
+        public LiquidCoolingSystem(string name, decimal price, string manufacturer, int stock, string socket, int speed, int tdpDIS) : base(name, price, manufacturer, stock, socket, speed, tdpDIS)
         {
             Type = ComponentType.LiquidCoolingSystem;
         }

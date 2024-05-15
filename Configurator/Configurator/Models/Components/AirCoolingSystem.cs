@@ -18,7 +18,7 @@ namespace Configurator.Models.Components
             Type = ComponentType.AirCoolingSystem;
         }
 
-        public AirCoolingSystem(string socket, int speed, int tdpDIS) : base(socket, speed, tdpDIS)
+        public AirCoolingSystem(string name, decimal price, string manufacturer, int stock, string socket, int speed, int tdpDIS) : base(name, price, manufacturer, stock, socket, speed, tdpDIS)
         {
             Type = ComponentType.AirCoolingSystem;
         }

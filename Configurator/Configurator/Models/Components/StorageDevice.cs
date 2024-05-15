@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.EntityFrameworkCore.Metadata.Internal;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -13,7 +14,7 @@ namespace Configurator.Models.Components
             
         }
 
-        protected StorageDevice(string form, string speed, string volume)
+        protected StorageDevice(string name, decimal price, string manufacturer, int stock, string form, string speed, string volume) : base(name, price, manufacturer, stock)
         {
             Form = form;
             Speed = speed;

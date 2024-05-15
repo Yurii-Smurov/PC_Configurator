@@ -5,6 +5,8 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Net.Sockets;
+using System.Runtime.Intrinsics.Arm;
 
 namespace Configurator.Models.Components
 {
@@ -18,7 +20,7 @@ namespace Configurator.Models.Components
             Type = ComponentType.Processor;
         }
 
-        public Processor(string socket, bool dDR4, bool dDR5, bool m2, int tDP)
+        public Processor(string name, decimal price, string manufacturer, int stock, string socket, bool dDR4, bool dDR5, bool m2, int tDP) : base(name, price, manufacturer, stock)
         {
             Socket = socket;
             DDR4 = dDR4;

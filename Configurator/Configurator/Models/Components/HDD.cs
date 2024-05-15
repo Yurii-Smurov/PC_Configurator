@@ -13,7 +13,7 @@ namespace Configurator.Models.Components
             Type = ComponentType.HDD;
         }
 
-        public HDD(string form, string speed, string volume) : base(form, speed, volume)
+        public HDD(string name, decimal price, string manufacturer, int stock, string form, string speed, string volume) : base(name, price, manufacturer, stock, form, speed, volume)
         {
             Type = ComponentType.HDD;
         }

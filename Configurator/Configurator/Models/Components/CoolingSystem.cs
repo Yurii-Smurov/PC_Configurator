@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net.Sockets;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -15,7 +16,7 @@ namespace Configurator.Models.Components
             
         }
 
-        public CoolingSystem(string socket, int speed, int tdpDIS)
+        protected CoolingSystem(string name, decimal price, string manufacturer, int stock, string socket, int speed, int tdpDIS) : base(name, price, manufacturer, stock)
         {
             Socket = socket;
             Speed = speed;

@@ -13,12 +13,12 @@ namespace Configurator.Models.Components
             Type = ComponentType.ComputerCase;
         }
 
-        public ComputerCase(string name, decimal price, string manufacturer, int stock) : base(name, price, manufacturer, stock)
+        public ComputerCase(string name, decimal price, string manufacturer, int stock, string form) : base(name, price, manufacturer, stock)
         {
+            Form = Form;
+
             Type = ComponentType.ComputerCase;
         }
-
-        // Конструктор затычка
 
         public string Form { get; set; }
     }

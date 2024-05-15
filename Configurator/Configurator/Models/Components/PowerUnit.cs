@@ -13,14 +13,13 @@ namespace Configurator.Models.Components
             Type = ComponentType.PowerUnit;
         }
 
-        public PowerUnit(string form)
+
+        public PowerUnit(string name, decimal price, string manufacturer, int stock, string form) : base(name, price, manufacturer, stock)
         {
             Form = form;
 
             Type = ComponentType.PowerUnit;
         }
-
-        // Конструктор затычка
 
         public string Form {  get; set; }
 

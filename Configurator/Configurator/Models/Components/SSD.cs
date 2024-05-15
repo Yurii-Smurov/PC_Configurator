@@ -13,7 +13,7 @@ namespace Configurator.Models.Components
             Type = ComponentType.SSD;
         }
 
-        public SSD(string form, string speed, string volume) : base(form, speed, volume)
+        public SSD(string name, decimal price, string manufacturer, int stock, string form, string speed, string volume) : base(name, price, manufacturer, stock, form, speed, volume)
         {
             Type = ComponentType.SSD;
         }

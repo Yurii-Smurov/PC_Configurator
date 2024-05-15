@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net.Sockets;
+using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -13,7 +15,7 @@ namespace Configurator.Models.Components
             Type = ComponentType.Motherboard;
         }
 
-        public Motherboard(string form, string chipset, string socket, bool ddr4, bool ddr5, bool m2)
+        public Motherboard(string name, decimal price, string manufacturer, int stock, string form, string chipset, string socket, bool ddr4, bool ddr5, bool m2) : base(name, price, manufacturer, stock)
         {
             Form = form;
             Chipset = chipset;
@@ -25,7 +27,7 @@ namespace Configurator.Models.Components
             Type = ComponentType.Motherboard;
         }
 
-        // Конструктор затычка
+
 
         public string Form {  get; set; }
         public string Chipset { get; set; }

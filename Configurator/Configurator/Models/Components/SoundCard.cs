@@ -13,7 +13,7 @@ namespace Configurator.Models.Components
             Type = ComponentType.SoundCard;
         }
 
-        public SoundCard(string form)
+        public SoundCard(string name, decimal price, string manufacturer, int stock, string form) : base(name, price, manufacturer, stock)
         {
             Form = form;
 
