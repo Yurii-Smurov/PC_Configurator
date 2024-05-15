@@ -13,7 +13,7 @@ namespace Configurator.Views
 
         public ViewController()
         {
-            _currentView = new RegistrationView();
+            _currentView = new RegistrationView(this);
         }
 
         public void ChangeState(IView view)
