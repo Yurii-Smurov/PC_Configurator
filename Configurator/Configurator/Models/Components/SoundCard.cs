@@ -20,8 +20,6 @@ namespace Configurator.Models.Components
             Type = ComponentType.SoundCard;
         }
 
-        // Конструктор затычка
-
         public string Form {  get; set; }
     }
 }

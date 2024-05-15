@@ -13,9 +13,12 @@ namespace Configurator.Models.Components
             Type = ComponentType.SSD;
         }
 
-        public SSD(string name, decimal price, string manufacturer, int stock, string form, string speed, string volume) : base(name, price, manufacturer, stock, form, speed, volume)
+        public SSD(string name, decimal price, string manufacturer, int stock, string form, string speed, string volume, bool nvme) : base(name, price, manufacturer, stock, form, speed, volume)
         {
+            Nvme = nvme;
             Type = ComponentType.SSD;
         }
+        public bool Nvme { get; set; }
+
     }
 }
