@@ -66,7 +66,7 @@ namespace Configurator.Views
                     case ConsoleKey.Enter:
                         ChooseComponent();
                         Console.Clear();
-                        _pcPrinter.PrintComponents(UserSession.GetInstance().PcBuilder._components);
+                        _pcPrinter.PrintComponents(UserSession.GetInstance().PcBuilder.Components);
                         Console.ReadKey();
                         exit = true;
                         break;
