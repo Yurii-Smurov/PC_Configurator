@@ -13,12 +13,12 @@ namespace Configurator.Models.PCBuider
     /// </summary>
     class PCBuilder
     {
-        private ICollection<PCComponent> _components = new List<PCComponent>();
+        public ICollection<PCComponent> Components = new List<PCComponent>();
         public PCBuilder AddComponent(PCComponent component)
         {
-            if (!HasComponentOfType(component.Type))
+            //if (!HasComponentOfType(component.Type))
             {
-                _components.Add(component);
+                Components.Add(component);
             }
             return this;
         }
@@ -27,7 +27,7 @@ namespace Configurator.Models.PCBuider
         {
             if (HasComponentOfType(componentType))
             {
-                _components.Remove(_components.FirstOrDefault(c => c.Type == componentType));
+                Components.Remove(Components.FirstOrDefault(c => c.Type == componentType));
             }
 
             return this;
@@ -40,12 +40,12 @@ namespace Configurator.Models.PCBuider
         public PC Build()
         {
             // Здесь необходимо реализовать логику проверки(Проверить наличие обязательных компонентов) и создания объекта PC
-            return new PC(_components);
+            return new PC(Components);
         }
 
         public bool HasComponentOfType(ComponentType type)
         {
-            return _components.Any(c => c.Type == type);
+            return Components.Any(c => c.Type == type);
         }
 
     }

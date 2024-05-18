@@ -8,6 +8,13 @@ namespace Configurator.Views.Admin
 {
     class AdminMenuView : IView
     {
+        private ViewController _viewController;
+
+        public AdminMenuView(ViewController viewController)
+        {
+            _viewController = viewController;
+        }
+
         public void Show()
         {
             throw new NotImplementedException();

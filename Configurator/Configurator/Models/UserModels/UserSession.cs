@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Configurator.Models.PCBuider;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -10,6 +11,7 @@ namespace Configurator.Models.UserModels
     {
         private static UserSession _instance;
         public User? CurrentUser { get; set; }
+        public PCBuilder PcBuilder { get; set; }
         private UserSession()
         {
         }
@@ -19,6 +21,7 @@ namespace Configurator.Models.UserModels
             if(_instance == null)
             {
                 _instance = new UserSession();
+                _instance.PcBuilder = new PCBuilder();
             }
             return _instance;
         }

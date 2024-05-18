@@ -52,7 +52,9 @@ namespace Configurator.Views.Auth
             {
                 int choice;
 
-                while (true)
+                bool shouldExit = false;
+
+                while (!shouldExit)
                 {
                     Console.WriteLine("Аккаунт не зарегистрирован:");
                     Console.WriteLine("Один из пунктов не соответствует заданным требованиям");
@@ -69,23 +71,20 @@ namespace Configurator.Views.Auth
                     switch (choice)
                     {
                         case 1:
+                            shouldExit = true;
                             _viewController.ChangeState(new RegistrationView(_viewController));
                             _viewController.ShowCurrentView();
                             break;
                         case 2:
-                            _viewController.ChangeState(new AuthView(_viewController));
+                            shouldExit = true;
+                            _viewController.ChangeState(new EnterView(_viewController));
                             _viewController.ShowCurrentView();
                             break;
                         default:
+                            shouldExit = true;
                             Console.WriteLine("Неверный выбор");
                             break;
                     }
-
-                    if (choice == 1 || choice == 2)
-                    {
-                        break;
-                    }
-
                 }
             }
             else

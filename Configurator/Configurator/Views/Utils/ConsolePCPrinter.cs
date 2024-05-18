@@ -15,7 +15,7 @@ namespace Configurator.Views.Utils
         {
             foreach (var component in components)
             {
-                Console.WriteLine($"Component: {component.Name}, Price: {component.Price}, Manufacturer: {component.Manufacturer}, Stock: {component.Stock}");
+                Console.WriteLine($"ID: {component.Id}, Component: {component.Name}, Price: {component.Price}, Manufacturer: {component.Manufacturer}, Stock: {component.Stock}");
             }
         }
     }

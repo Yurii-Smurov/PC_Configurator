@@ -8,6 +8,13 @@ namespace Configurator.Views.Director
 {
     class DirectorMenuView : IView
     {
+        private ViewController _viewController;
+
+        public DirectorMenuView(ViewController viewController)
+        {
+            _viewController = viewController;
+        }
+
         public void Show()
         {
             throw new NotImplementedException();

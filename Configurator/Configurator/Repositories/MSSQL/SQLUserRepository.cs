@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 using Configurator.Models.Components;
+using System.Runtime.CompilerServices;
 
 namespace Configurator.Repositories.MSSQL
 {
@@ -46,9 +47,10 @@ namespace Configurator.Repositories.MSSQL
                     .FirstOrDefault(u => u.Username == username);
         }
 
-        public void UpdateUser(User entity)
+        public void RefreshUserSession()
         {
-            throw new NotImplementedException();
+            var user = GetUserByUsername(UserSession.GetInstance().CurrentUser.Username);
+            UserSession.GetInstance().CurrentUser = user;
         }
 
         public void AddPC(PC pc, User user)

@@ -1,8 +1,12 @@
-﻿using System;
+﻿using Configurator.Models.UserModels;
+using Configurator.Models.Components;
+using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Configurator.Repositories.MSSQL;
 
 namespace Configurator.Views
 {
@@ -19,6 +23,9 @@ namespace Configurator.Views
         {
             Console.Clear();
             Console.WriteLine("Главная страница");
+            Console.WriteLine($"Текущий пользователь: {UserSession.GetInstance().CurrentUser.Username}");
+            _viewController.ChangeState(new ChooseComponentView<Processor>(new SQLComponentRepository<Processor>(new PCComponentDbContext())));
+            _viewController.ShowCurrentView();
         }
     }
 }
