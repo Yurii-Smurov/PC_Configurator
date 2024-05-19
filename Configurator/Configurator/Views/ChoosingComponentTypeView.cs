@@ -19,11 +19,11 @@ namespace Configurator.Views
 
         public void Show()
         {
-            _viewController.ChangeState(new ChooseComponentView<Processor>(new SQLComponentRepository<Processor>(new PCComponentDbContext())));
+            _viewController.ChangeState(new ChooseComponentView<Processor>(_viewController, new SQLComponentRepository<Processor>(new PCComponentDbContext())));
             _viewController.ShowCurrentView();
 
 
-            _viewController.ChangeState(new ChooseComponentView<Processor>(new SQLComponentRepository<Processor>(new PCComponentDbContext())));
+            _viewController.ChangeState(new ChooseComponentView<Processor>(_viewController, new SQLComponentRepository<Processor>(new PCComponentDbContext())));
         }
     }
 }

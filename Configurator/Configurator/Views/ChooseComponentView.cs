@@ -17,24 +17,25 @@ namespace Configurator.Views
     class ChooseComponentView<T> : IView
         where T : PCComponent
     {
-        private readonly ConsolePCPrinter _pcPrinter = new ConsolePCPrinter();
+        private readonly ViewController _viewController;
         private readonly IComponentRepository<T> _componentRepository;
         private readonly int pageSize = 10; // Количество элементов на странице
         private IEnumerable<PCComponent>? _componentList;
 
-        public ChooseComponentView(IComponentRepository<T> componentRepository)
+        public ChooseComponentView(ViewController viewController, IComponentRepository<T> componentRepository)
         {
+            _viewController = viewController;
             _componentRepository = componentRepository;
         }
 
         public void Show()
         {
             int pageNumber = 0; // Номер текущей страницы
-            bool exit = false;
+            bool shouldExit = false;
 
             _componentList = _componentRepository.GetAll();
 
-            while (!exit)
+            while (!shouldExit)
             {
                 IEnumerable<PCComponent> itemsToShow = _componentList.Skip(pageNumber * pageSize).Take(pageSize).ToList();
 
@@ -63,13 +64,18 @@ namespace Configurator.Views
                         pageNumber = (pageNumber > 0) ? pageNumber - 1 : 0;
                         break;
                     case ConsoleKey.Escape:
+                        shouldExit = true;
+                        _viewController.ChangeState(new ChoosingComponentTypeView(_viewController));
+                        _viewController.ShowCurrentView();
                         break;
                     case ConsoleKey.Enter:
+                        shouldExit = true;
                         ChooseComponent();
                         Console.Clear();
-                        _pcPrinter.PrintComponents(UserSession.GetInstance().PcBuilder.Components);
+                        ConsolePCPrinter.PrintComponents(UserSession.GetInstance().PcBuilder.Components);
                         Console.ReadKey();
-                        exit = true;
+                        _viewController.ChangeState(new ChoosingComponentTypeView(_viewController));
+                        _viewController.ShowCurrentView();
                         break;
                 }
             }

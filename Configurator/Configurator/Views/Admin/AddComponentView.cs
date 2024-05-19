@@ -46,15 +46,7 @@ namespace Configurator.Views.Admin
                 Console.WriteLine("10 Система водяного охлаждения процессора");
                 Console.WriteLine("11 Звуковая карта");
 
-                int choice;
-
-                while (!int.TryParse(Console.ReadLine(), out choice))
-                {
-                    Console.WriteLine("Неправильный ввод. Пожалуйста, введите целое число.");
-                    Console.WriteLine("Нажмите любую клавишу для продолжения");
-                    Console.ReadKey();
-                    _viewController.ShowCurrentView();
-                }
+                int choice = ConsoleInput.ReadInteger("Выбор: ");
 
                 switch (choice)
                 {
@@ -123,9 +115,9 @@ namespace Configurator.Views.Admin
                         shouldExit = true;
                         Console.WriteLine("Неверный выбор, нажмите любую клавишу для продолжения");
                         Console.ReadKey();
-                        _viewController.ShowCurrentView();
                         break;
                 }
+                _viewController.ShowCurrentView();
             }
         }
 

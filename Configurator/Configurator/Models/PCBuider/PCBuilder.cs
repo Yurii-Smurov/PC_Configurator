@@ -29,7 +29,6 @@ namespace Configurator.Models.PCBuider
             {
                 Components.Remove(Components.FirstOrDefault(c => c.Type == componentType));
             }
-
             return this;
         }
 
@@ -37,15 +36,32 @@ namespace Configurator.Models.PCBuider
         /// Метод, возвращающий объект класса PC из подобранных компонентов
         /// </summary>
         /// <returns></returns>
-        public PC Build()
+        public PC? Build()
         {
-            // Здесь необходимо реализовать логику проверки(Проверить наличие обязательных компонентов) и создания объекта PC
-            return new PC(Components);
+            if (IsValidConfiguration(Components))
+                return new PC(Components);
+            else
+                return null;
         }
+
 
         public bool HasComponentOfType(ComponentType type)
         {
             return Components.Any(c => c.Type == type);
+        }
+
+        private bool IsValidConfiguration(IEnumerable<PCComponent> components)
+        {
+            bool hasProcessor = HasComponentOfType(ComponentType.Processor);
+            bool hasGraphicsCard = HasComponentOfType(ComponentType.GraphicsCard);
+            bool hasMotherboard = HasComponentOfType(ComponentType.Motherboard);
+            bool hasPowerUnit = HasComponentOfType(ComponentType.PowerUnit);
+            bool hasComputerCase = HasComponentOfType(ComponentType.ComputerCase);
+            bool hasMemory = HasComponentOfType(ComponentType.Memory);
+            bool hasStorage = HasComponentOfType(ComponentType.HDD) || HasComponentOfType(ComponentType.SSD);
+            bool hasCoolingSystem = HasComponentOfType(ComponentType.AirCoolingSystem) || HasComponentOfType(ComponentType.LiquidCoolingSystem);
+
+            return hasProcessor && hasGraphicsCard && hasMotherboard && hasPowerUnit && hasComputerCase && hasMemory && hasStorage && hasCoolingSystem;
         }
 
     }

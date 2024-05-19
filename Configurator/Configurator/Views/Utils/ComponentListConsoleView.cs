@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Configurator.Views.Utils
 {
-    class ComponentListConsoleView<T>
+    static class ComponentListConsoleView<T>
         where T : PCComponent 
     {
         public static void ShowList()

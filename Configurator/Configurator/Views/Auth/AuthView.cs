@@ -53,7 +53,7 @@ namespace Configurator.Views.Auth
                 switch (UserSession.GetInstance().CurrentUser.UserRole)
                 {
                     case Role.User:
-                        _viewController.ChangeState(new MainMenuView(_viewController));
+                        _viewController.ChangeState(new MainMenuView(new SQLUserRepository(new UserDbContext()),_viewController));
                         break;
                     case Role.Admin:
                         _viewController.ChangeState(new AdminMenuView(_viewController));

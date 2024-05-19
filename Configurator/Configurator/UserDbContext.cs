@@ -35,6 +35,9 @@ namespace Configurator
             modelBuilder.Entity<User>()
                 .ToTable("Users")
                 .HasKey(a => a.UserId);
+            modelBuilder.Entity<User>()
+                .Property(p => p.UserRole)
+                .HasConversion<string>();
 
             modelBuilder.Entity<PC>()
                 .ToTable("PCs")

@@ -9,9 +9,9 @@ using Configurator.Models.PCBuider;
 
 namespace Configurator.Views.Utils
 {
-    class ConsolePCPrinter
+    static class ConsolePCPrinter
     {
-        public void PrintComponents(ICollection<PCComponent> components)
+        public static void PrintComponents(ICollection<PCComponent> components)
         {
             foreach (var component in components)
             {
