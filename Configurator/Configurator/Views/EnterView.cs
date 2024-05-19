@@ -1,5 +1,6 @@
 ﻿using Configurator.Views.Admin;
 using Configurator.Views.Auth;
+using Configurator.Views.Director;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -59,7 +60,7 @@ namespace Configurator.Views
                     break;
                 case 3:
                     shouldExit = true;
-                    _viewController.ChangeState(new AddComponentView(_viewController));
+                    _viewController.ChangeState(new DirectorMenuView(_viewController));
                     _viewController.ShowCurrentView();
                     break;
                     default:

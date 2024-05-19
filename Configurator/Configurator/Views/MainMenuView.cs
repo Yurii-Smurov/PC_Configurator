@@ -24,7 +24,7 @@ namespace Configurator.Views
             Console.Clear();
             Console.WriteLine("Главная страница");
             Console.WriteLine($"Текущий пользователь: {UserSession.GetInstance().CurrentUser.Username}");
-            _viewController.ChangeState(new ChooseComponentView<Processor>(new SQLComponentRepository<Processor>(new PCComponentDbContext())));
+            _viewController.ChangeState(new ChoosingComponentTypeView(_viewController));
             _viewController.ShowCurrentView();
         }
     }

@@ -8,6 +8,13 @@ namespace Configurator.Views.Admin
 {
     class DeleteComponentView : IView
     {
+        private readonly ViewController _viewController;
+
+        public DeleteComponentView(ViewController viewController)
+        {
+            _viewController = viewController;
+        }
+
         public void Show()
         {
             throw new NotImplementedException();

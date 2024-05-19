@@ -16,9 +16,14 @@ using Microsoft.EntityFrameworkCore.Metadata.Internal;
 
 namespace Configurator.Views.Admin
 {
-    class AddComponentView(ViewController viewController) : IView
+    class AddComponentView : IView
     {
-        private readonly ViewController _viewController = viewController;
+        private readonly ViewController _viewController;
+
+        public AddComponentView(ViewController viewController)
+        {
+            _viewController = viewController;
+        }
 
         public void Show()
         {

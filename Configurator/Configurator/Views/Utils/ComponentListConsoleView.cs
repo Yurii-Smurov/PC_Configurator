@@ -11,7 +11,7 @@ namespace Configurator.Views.Utils
     class ComponentListConsoleView<T>
         where T : PCComponent 
     {
-        public void ShowList()
+        public static void ShowList()
         {
             var componentRepository = new SQLComponentRepository<T>(new PCComponentDbContext());
 
