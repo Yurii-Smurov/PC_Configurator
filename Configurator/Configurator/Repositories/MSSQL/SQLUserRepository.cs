@@ -39,7 +39,7 @@ namespace Configurator.Repositories.MSSQL
             }
         }
 
-        public User? GetUserByUsername (string username)
+        public User? GetUserByUsername (string? username)
         {
                 return _dbContext.Users
                     .Include(u => u.PCs)
@@ -48,9 +48,12 @@ namespace Configurator.Repositories.MSSQL
         }
 
         public void RefreshUserSession()
-        {
+        {           
             var user = GetUserByUsername(UserSession.GetInstance().CurrentUser.Username);
-            UserSession.GetInstance().CurrentUser = user;
+            if (user != null)
+            {
+                UserSession.GetInstance().CurrentUser = user;
+            }
         }
 
         public void AddPC(PC pc, User user)
@@ -66,9 +69,13 @@ namespace Configurator.Repositories.MSSQL
             .Include(pc => pc.Components)
             .FirstOrDefault(pc => pc.PCId == pcId);
 
+            if (pc != null)
+            {
+
             _dbContext.PCComponents.RemoveRange(pc.Components);
             _dbContext.PCs.Remove(pc);
             _dbContext.SaveChanges();
+            }
         }
     }
 }

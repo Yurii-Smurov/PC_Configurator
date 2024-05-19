@@ -10,7 +10,7 @@ namespace Configurator.Views
 {
     class ChoosingComponentTypeView : IView
     {
-        private ViewController _viewController;
+        private readonly ViewController _viewController;
 
         public ChoosingComponentTypeView(ViewController viewController)
         {

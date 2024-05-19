@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Configurator.Views.Director
 {
-    internal class SetUserRoleView
+    class SetUserRoleView
     {
     }
 }

@@ -14,7 +14,7 @@ namespace Configurator.Models.Components
             
         }
 
-        protected StorageDevice(string name, decimal price, string manufacturer, int stock, string form, string speed, string volume) : base(name, price, manufacturer, stock)
+        protected StorageDevice(string name, decimal price, string manufacturer, int stock, string form, int speed, int volume) : base(name, price, manufacturer, stock)
         {
             Form = form;
             Speed = speed;
@@ -24,7 +24,7 @@ namespace Configurator.Models.Components
         // Конструктор затычка
 
         public string Form {  get; set; }
-        public string Speed { get; set; }
-        public string Volume { get; set; }
+        public int Speed { get; set; }
+        public int Volume { get; set; }
     }
 }

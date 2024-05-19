@@ -10,6 +10,7 @@ using System.Runtime.ExceptionServices;
 using System.Text;
 using System.Threading.Tasks;
 using Configurator.Repositories;
+using Configurator.Views.UserInput;
 
 namespace Configurator.Views
 {
@@ -76,13 +77,7 @@ namespace Configurator.Views
 
         private void ChooseComponent()
         {
-            int choiceId;
-
-            Console.WriteLine("Введите ID комплектующего");
-            while (!int.TryParse(Console.ReadLine(), out choiceId))
-            {
-                Console.WriteLine("Некорректный ввод. Попробуйте еще раз.");
-            }
+            int choiceId = ConsoleInput.ReadInteger("Введите ID комплектующего");
 
             var foundedComponent = _componentList.FirstOrDefault(c => c.Id == choiceId);
             if (foundedComponent != null)
@@ -94,11 +89,7 @@ namespace Configurator.Views
                     Console.WriteLine("1 - Да.");
                     Console.WriteLine("2 - Нет.");
 
-                    int choice;
-                    while (!int.TryParse(Console.ReadLine(), out choice))
-                    {
-                        Console.WriteLine("Некорректный ввод. Попробуйте еще раз.");
-                    }
+                    int choice = ConsoleInput.ReadInteger("Введите вариант:");
 
                     switch (choice)
                     {

@@ -9,12 +9,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Configurator.Views.UserInput;
 
 namespace Configurator.Views.Auth
 {
     class AuthView : IView
     {
-        private ViewController _viewController;
+        private readonly ViewController _viewController;
 
         public AuthView(ViewController viewController)
         {
@@ -25,10 +26,9 @@ namespace Configurator.Views.Auth
         {
             Console.Clear();
 
-            Console.Write("Введите логин: ");
-            string? login = Console.ReadLine();
+            string? login = ConsoleInput.ReadString("Введите логин:");
 
-            Console.Write("Введите пароль: ");
+            Console.WriteLine("Введите пароль: ");
             string? password = ReadPassword();
 
             Console.Clear();
@@ -62,7 +62,6 @@ namespace Configurator.Views.Auth
                         _viewController.ChangeState(new DirectorMenuView(_viewController));
                         break;
                     default:
-                        UserSession.GetInstance().CurrentUser = null;
                         _viewController.ChangeState(new EnterView(_viewController));
                         break;
                 }

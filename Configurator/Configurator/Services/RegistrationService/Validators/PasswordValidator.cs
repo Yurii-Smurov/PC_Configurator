@@ -16,8 +16,12 @@ namespace Configurator.Services.RegistrationService.Validators
         private readonly Regex hasLowerChar = new Regex(@"[a-z]+");
         private readonly Regex hasSymbols = new Regex(@"[!@#$%^&*()_+=\[{\]};:<>|./?-]");
 
-        public bool Validate(string password)
+        public bool Validate(string? password)
         {
+            if (password == null)
+            {
+                return false;
+            }
             // Проверка соответствия всем условиям
             return hasNumber.IsMatch(password) && hasUpperChar.IsMatch(password) && hasMiniMaxChars.IsMatch(password)
                 && hasLowerChar.IsMatch(password) && hasSymbols.IsMatch(password);

@@ -1,4 +1,5 @@
-﻿using Configurator.Views.Auth;
+﻿using Configurator.Views.Admin;
+using Configurator.Views.Auth;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,7 +10,7 @@ namespace Configurator.Views
 {
     class EnterView : IView
     {
-        private ViewController _viewController;
+        private readonly ViewController _viewController;
 
         public EnterView(ViewController viewController)
         {
@@ -26,6 +27,7 @@ namespace Configurator.Views
             Console.WriteLine("0. Выйти из приложения");
             Console.WriteLine("1. Войти в аккаунт");
             Console.WriteLine("2. Регистрация аккаунта");
+            Console.WriteLine("3. тест окна");
             Console.WriteLine();
             Console.Write("Введите номер действия и нажмите enter: ");
 
@@ -55,7 +57,12 @@ namespace Configurator.Views
                     _viewController.ChangeState(new RegistrationView(_viewController));
                     _viewController.ShowCurrentView();
                     break;
-                default:
+                case 3:
+                    shouldExit = true;
+                    _viewController.ChangeState(new AddComponentView(_viewController));
+                    _viewController.ShowCurrentView();
+                    break;
+                    default:
                     shouldExit = true;
                     Console.WriteLine("Неверный выбор, нажмите любую клавишу для продолжения");
                     Console.ReadKey();

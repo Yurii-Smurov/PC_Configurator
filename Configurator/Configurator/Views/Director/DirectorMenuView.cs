@@ -8,7 +8,7 @@ namespace Configurator.Views.Director
 {
     class DirectorMenuView : IView
     {
-        private ViewController _viewController;
+        private readonly ViewController _viewController;
 
         public DirectorMenuView(ViewController viewController)
         {

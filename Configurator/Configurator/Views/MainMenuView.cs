@@ -12,7 +12,7 @@ namespace Configurator.Views
 {
     class MainMenuView : IView
     {
-        private ViewController _viewController;
+        private readonly ViewController _viewController;
 
         public MainMenuView(ViewController viewController)
         {

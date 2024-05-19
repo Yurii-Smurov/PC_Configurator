@@ -13,10 +13,14 @@ namespace Configurator.Services.RegistrationService.Validators
         private readonly Regex hasMiniMaxChars = new Regex(@".{6,30}");
         private readonly Regex hasStructure = new Regex(@"^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$");
 
-        public bool Validate(string password)
+        public bool Validate(string? mail)
         {
+            if (mail == null)
+            {
+                return false;
+            }
             // Проверка соответствия всем условиям
-            return /*hasMiniMaxChars.IsMatch(password) &&*/ hasStructure.IsMatch(password);
+            return hasMiniMaxChars.IsMatch(mail) && hasStructure.IsMatch(mail);
         }
     }
 }

@@ -12,8 +12,12 @@ namespace Configurator.Services.RegistrationService.Validators
         // Регулярные выражения для условий логина
         private readonly Regex hasMiniMaxChars = new Regex(@".{6,12}");
 
-        public bool Validate(string login)
+        public bool Validate(string? login)
         {
+            if (login == null)
+            {
+                return false;
+            }
             // Проверка соответствия всем условиям
             return hasMiniMaxChars.IsMatch(login);
         }
