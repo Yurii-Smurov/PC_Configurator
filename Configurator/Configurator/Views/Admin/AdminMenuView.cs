@@ -23,7 +23,7 @@ namespace Configurator.Views.Admin
             while (!shouldExit)
             {
                 Console.Clear();
-                Console.WriteLine("Выбери действие администратора:");
+                Console.WriteLine("Выбери действие:");
                 Console.WriteLine("1. Добавить комплектующее");
                 Console.WriteLine("2. Удалить комплектующее");
 
@@ -34,21 +34,18 @@ namespace Configurator.Views.Admin
                     case 1:
                         _viewController.ChangeState(new AddComponentView(_viewController)); // создание экземпляра класса AddComponentView
                         _viewController.ShowCurrentView(); // вызов метода Show у экземпляра класса AddComponentView
-                        shouldExit = true;
-                        break;
+                        return;
 
                     case 2:
                         _viewController.ChangeState(new DeleteComponentView(_viewController));
                         _viewController.ShowCurrentView(); // вызов метода Show у экземпляра класса DeleteComponentView
-                        shouldExit = true;
-                        break;
+                        return;
 
                     default:
                         Console.WriteLine("Некорректный выбор. Нажмите любую клавишу для повтора.");
                         Console.ReadKey();
                         _viewController.ShowCurrentView();
-                        shouldExit = true;
-                        break;
+                        return;
                 }
             }
         }

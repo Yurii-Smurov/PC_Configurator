@@ -77,5 +77,19 @@ namespace Configurator.Repositories.MSSQL
             _dbContext.SaveChanges();
             }
         }
+
+        public void UpdateUser(User user)
+        {
+            var userToUpdate = _dbContext.Users.Find(user.UserId);
+            if (userToUpdate != null)
+            {
+                userToUpdate.Username = user.Username;
+                userToUpdate.Password = user.Password;
+                userToUpdate.Email = user.Email;
+                userToUpdate.UserRole = user.UserRole;
+
+                _dbContext.SaveChanges();
+            }
+        }
     }
 }

@@ -16,6 +16,7 @@ namespace Configurator.Repositories.Interface
         void DeleteUser(User entity); // удаление пользователя
         void AddPC(PC entity, User user); // добавление сборки ПК к учётной записи пользователя
         void DeletePC(int pcId, User user); // удаление сборки ПК из учётной записи пользователя
+        void UpdateUser(User user);
 
     }
 }

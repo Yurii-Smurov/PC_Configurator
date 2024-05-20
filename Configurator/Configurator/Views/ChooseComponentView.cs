@@ -31,11 +31,10 @@ namespace Configurator.Views
         public void Show()
         {
             int pageNumber = 0; // Номер текущей страницы
-            bool shouldExit = false;
 
             _componentList = _componentRepository.GetAll();
 
-            while (!shouldExit)
+            while (true)
             {
                 IEnumerable<PCComponent> itemsToShow = _componentList.Skip(pageNumber * pageSize).Take(pageSize).ToList();
 
@@ -64,19 +63,17 @@ namespace Configurator.Views
                         pageNumber = (pageNumber > 0) ? pageNumber - 1 : 0;
                         break;
                     case ConsoleKey.Escape:
-                        shouldExit = true;
                         _viewController.ChangeState(new ChoosingComponentTypeView(_viewController));
                         _viewController.ShowCurrentView();
-                        break;
+                        return;
                     case ConsoleKey.Enter:
-                        shouldExit = true;
                         ChooseComponent();
                         Console.Clear();
                         ConsolePCPrinter.PrintComponents(UserSession.GetInstance().PcBuilder.Components);
                         Console.ReadKey();
                         _viewController.ChangeState(new ChoosingComponentTypeView(_viewController));
                         _viewController.ShowCurrentView();
-                        break;
+                        return;
                 }
             }
         }

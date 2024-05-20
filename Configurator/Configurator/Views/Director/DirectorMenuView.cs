@@ -1,5 +1,6 @@
 ﻿using Configurator.Views.Admin;
 using Configurator.Views.UserInput;
+using Configurator.Repositories.MSSQL;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -19,11 +20,10 @@ namespace Configurator.Views.Director
 
         public void Show()
         {
-            bool shouldExit = false;
-            while (!shouldExit)
+            while (true)
             {
                 Console.Clear();
-                Console.WriteLine("Выберите действие директора:");
+                Console.WriteLine("Выберите действие:");
                 Console.WriteLine("1. Добавить комплектующее");
                 Console.WriteLine("2. Удалить комплектующее");
                 Console.WriteLine("3. Назначить роль пользователя");
@@ -35,26 +35,22 @@ namespace Configurator.Views.Director
                     case 1:
                         _viewController.ChangeState(new AddComponentView(_viewController)); // создание экземпляра класса AddComponentView
                         _viewController.ShowCurrentView(); // вызов метода Show у экземпляра класса AddComponentView
-                        shouldExit = true;
-                        break;
+                        return;
 
                     case 2:
                         _viewController.ChangeState(new DeleteComponentView(_viewController));
                         _viewController.ShowCurrentView(); // вызов метода Show у экземпляра класса DeleteComponentView
-                        shouldExit = true;
-                        break;
+                        return;
 
                     case 3:
-                        _viewController.ChangeState(new SetUserRoleView(_viewController));
+                        _viewController.ChangeState(new SetUserRoleView(_viewController, new SQLUserRepository(new UserDbContext())));
                         _viewController.ShowCurrentView(); // вызов метода Show у экземпляра класса DeleteComponentView
-                        shouldExit = true;
-                        break;
+                        return;
 
                     default:
                         Console.WriteLine("Некорректный выбор. Нажмите любую клавишу для повтора.");
                         Console.ReadKey();
-                        shouldExit = true;
-                        break;
+                        return;
                 }
             }
         }

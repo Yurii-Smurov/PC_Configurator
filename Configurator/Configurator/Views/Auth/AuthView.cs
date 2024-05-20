@@ -56,10 +56,10 @@ namespace Configurator.Views.Auth
                         _viewController.ChangeState(new MainMenuView(new SQLUserRepository(new UserDbContext()),_viewController));
                         break;
                     case Role.Admin:
-                        _viewController.ChangeState(new AdminMenuView(_viewController));
+                        _viewController.ChangeState(new AdminActionsMenu(_viewController));
                         break;
                     case Role.Director:
-                        _viewController.ChangeState(new DirectorMenuView(_viewController));
+                        _viewController.ChangeState(new AdminActionsMenu(_viewController));
                         break;
                     default:
                         _viewController.ChangeState(new EnterView(_viewController));

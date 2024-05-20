@@ -27,8 +27,7 @@ namespace Configurator.Views
 
         public void Show()
         {
-            bool shouldExit = false;
-            while (!shouldExit)
+            while (true)
             {
             Console.Clear();
             Console.WriteLine("Главная страница");
@@ -45,14 +44,12 @@ namespace Configurator.Views
             {
                 case 0:
                     Environment.Exit(0);
-                    break;
+                    return;
                 case 1:
-                    shouldExit = true;
                     _viewController.ChangeState(new ChoosingComponentTypeView(_viewController));
                     _viewController.ShowCurrentView();
-                    break;
+                    return;
                 case 2:
-                    shouldExit = true;
                     var buildedPc = UserSession.GetInstance().PcBuilder.Build();
                     if (buildedPc != null)
                     {
@@ -63,15 +60,15 @@ namespace Configurator.Views
                     }
                     else
                     {
+                        Console.Clear();
                         Console.WriteLine("Сборка ПК не завершена.");
                         Console.WriteLine("Не хватает одного из обязательных компонентов.");
                         Console.WriteLine("Нажмите любую клавишу для продолжения.");
                     }
                     Console.ReadKey();
                     _viewController.ShowCurrentView();
-                    break;
+                    return;
                 case 3:
-                    shouldExit = true;
                     Console.Clear();
                     foreach (var pc in UserSession.GetInstance().CurrentUser.PCs) // вывод информации о сборках текущего пользователя
                     {
@@ -82,13 +79,12 @@ namespace Configurator.Views
                     Console.WriteLine("Нажмите любую клавишу для продолжения.");
                     Console.ReadKey();
                     _viewController.ShowCurrentView();
-                    break;
+                    return;
                 default:
-                    shouldExit = true;
                     Console.WriteLine("Некорректный выбор. Нажмите любую клавишу для повтора.");
                     Console.ReadKey();
                     _viewController.ShowCurrentView();
-                    break;
+                    return;
                 }
             }
         }

@@ -113,10 +113,11 @@ namespace Configurator.Views.Admin
                         break;
                     default:
                         shouldExit = true;
-                        Console.WriteLine("Неверный выбор, нажмите любую клавишу для продолжения");
-                        Console.ReadKey();
+                        Console.WriteLine("Неверный выбор.");
                         break;
                 }
+                Console.WriteLine("Нажмите любую клавишу для продолжения");
+                Console.ReadKey();
                 _viewController.ShowCurrentView();
             }
         }

@@ -1,6 +1,7 @@
 ﻿using Configurator.Views.Admin;
 using Configurator.Views.Auth;
 using Configurator.Views.Director;
+using Configurator.Views.UserInput;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -28,47 +29,29 @@ namespace Configurator.Views
             Console.WriteLine("0. Выйти из приложения");
             Console.WriteLine("1. Войти в аккаунт");
             Console.WriteLine("2. Регистрация аккаунта");
-            Console.WriteLine("3. тест окна");
             Console.WriteLine();
-            Console.Write("Введите номер действия и нажмите enter: ");
+            Console.WriteLine("Введите номер действия и нажмите enter: ");
 
-            int choice;
-
-            while (!int.TryParse(Console.ReadLine(), out choice))
-            {
-                shouldExit = true;
-                Console.WriteLine("Неправильный ввод. Пожалуйста, введите целое число.");
-                Console.WriteLine("Нажмите любую клавишу для продолжения");
-                Console.ReadKey();
-                _viewController.ShowCurrentView();
-            }
+            int choice = ConsoleInput.ReadInteger("Выбор: ");
 
             switch (choice)
             {
                 case 0:
                     Environment.Exit(0); 
-                    break;
+                    return;
                 case 1:
-                    shouldExit = true;
                     _viewController.ChangeState(new AuthView(_viewController));
                     _viewController.ShowCurrentView();
-                    break;
+                    return;
                 case 2:
-                    shouldExit = true;
                     _viewController.ChangeState(new RegistrationView(_viewController));
                     _viewController.ShowCurrentView();
-                    break;
-                case 3:
-                    shouldExit = true;
-                    _viewController.ChangeState(new DirectorMenuView(_viewController));
-                    _viewController.ShowCurrentView();
-                    break;
-                    default:
-                    shouldExit = true;
+                    return;
+                default:
                     Console.WriteLine("Неверный выбор, нажмите любую клавишу для продолжения");
                     Console.ReadKey();
                     _viewController.ShowCurrentView();
-                    break;
+                    return;
                 }
             }
         }
