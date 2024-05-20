@@ -25,6 +25,7 @@ namespace Configurator.Views.Auth
 
         public void Show()
         {
+            Console.Clear();
             Console.Write("Введите логин: ");
             string? login = Console.ReadLine();
 
