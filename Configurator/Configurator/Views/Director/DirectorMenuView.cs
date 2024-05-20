@@ -24,6 +24,7 @@ namespace Configurator.Views.Director
             {
                 Console.Clear();
                 Console.WriteLine("Выберите действие:");
+                Console.WriteLine("0. Выйти из приложения");
                 Console.WriteLine("1. Добавить комплектующее");
                 Console.WriteLine("2. Удалить комплектующее");
                 Console.WriteLine("3. Назначить роль пользователя");
@@ -32,6 +33,9 @@ namespace Configurator.Views.Director
 
                 switch (choice)
                 {
+                    case 0:
+                        Environment.Exit(0);
+                        return;
                     case 1:
                         _viewController.ChangeState(new AddComponentView(_viewController)); // создание экземпляра класса AddComponentView
                         _viewController.ShowCurrentView(); // вызов метода Show у экземпляра класса AddComponentView

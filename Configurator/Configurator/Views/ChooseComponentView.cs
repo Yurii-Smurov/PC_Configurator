@@ -73,6 +73,8 @@ namespace Configurator.Views
                         Console.ReadKey();
                         _viewController.ChangeState(new ChoosingComponentTypeView(_viewController));
                         _viewController.ShowCurrentView();
+                        Console.WriteLine("Чтобы продолжить нажмите любую клавишу.");
+                        Console.ReadKey();
                         return;
                 }
             }
@@ -85,7 +87,10 @@ namespace Configurator.Views
             var foundedComponent = _componentList.FirstOrDefault(c => c.Id == choiceId);
             if (foundedComponent != null)
             {
-                if (UserSession.GetInstance().PcBuilder.HasComponentOfType(foundedComponent.Type))
+
+                if (UserSession.GetInstance().PcBuilder.HasComponentOfType(foundedComponent.Type) 
+                    && !(foundedComponent.Type != ComponentType.AirCoolingSystem || foundedComponent.Type != ComponentType.LiquidCoolingSystem
+                    || foundedComponent.Type != ComponentType.HDD || foundedComponent.Type != ComponentType.SSD))
                 {
                     Console.WriteLine("В текущей сборке присутствует компонент этого типа.");
                     Console.WriteLine("Желаете ли вы поменять комплектующее в текущей сборке?");

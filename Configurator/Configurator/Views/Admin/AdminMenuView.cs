@@ -23,7 +23,8 @@ namespace Configurator.Views.Admin
             while (!shouldExit)
             {
                 Console.Clear();
-                Console.WriteLine("Выбери действие:");
+                Console.WriteLine("Выберите действие:");
+                Console.WriteLine("0. Выйти из приложения");
                 Console.WriteLine("1. Добавить комплектующее");
                 Console.WriteLine("2. Удалить комплектующее");
 
@@ -31,6 +32,9 @@ namespace Configurator.Views.Admin
 
                 switch (choice)
                 {
+                    case 0:
+                        Environment.Exit(0);
+                        return;
                     case 1:
                         _viewController.ChangeState(new AddComponentView(_viewController)); // создание экземпляра класса AddComponentView
                         _viewController.ShowCurrentView(); // вызов метода Show у экземпляра класса AddComponentView
