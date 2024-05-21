@@ -23,7 +23,7 @@ namespace Configurator.Models.Components
 
         // Конструктор затычка
 
-        public string Form {  get; set; }
+        public string Form {  get; set; } = null!;
         public int Speed { get; set; }
         public int Volume { get; set; }
     }

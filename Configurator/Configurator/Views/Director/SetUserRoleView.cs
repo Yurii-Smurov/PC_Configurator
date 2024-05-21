@@ -35,7 +35,7 @@ namespace Configurator.Views.Director
                 return;
             }
 
-            User? foundedUser = null;
+            User? foundedUser;
             try
             {
                 // Найти пользователя с указанным именем пользователя

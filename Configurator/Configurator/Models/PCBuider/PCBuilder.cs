@@ -38,7 +38,7 @@ namespace Configurator.Models.PCBuider
         /// <returns></returns>
         public PC? Build()
         {
-            if (IsValidConfiguration(Components))
+            if (IsValidConfiguration())
                 return new PC(Components);
             else
                 return null;
@@ -50,7 +50,7 @@ namespace Configurator.Models.PCBuider
             return Components.Any(c => c.Type == type);
         }
 
-        private bool IsValidConfiguration(IEnumerable<PCComponent> components)
+        private bool IsValidConfiguration()
         {
             bool hasProcessor = HasComponentOfType(ComponentType.Processor);
             bool hasGraphicsCard = HasComponentOfType(ComponentType.GraphicsCard);

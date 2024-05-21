@@ -14,8 +14,8 @@ namespace Configurator.Views.Auth
 {
     class RegistrationView : IView
     {
-        private ViewController _viewController;
-        private IUserRepository _userRepository;
+        private readonly ViewController _viewController;
+        private readonly IUserRepository _userRepository;
         
         public RegistrationView(ViewController viewController)
         {
@@ -32,15 +32,15 @@ namespace Configurator.Views.Auth
             Console.Clear();
 
             Console.WriteLine("Пароль должен содержать:");
-            Console.WriteLine("Только символы латиницы");
-            Console.WriteLine("От 6 до 12 символов");
-            Console.WriteLine("Как минимум один символ верхнего регистра");
-            Console.WriteLine("Как минимум одно число");
-            Console.WriteLine("Как минимум один специальный символ(!@#$%^&*()_+=\\[{\\]};:<>|./?-)");
+            Console.WriteLine("Только символы латиницы.");
+            Console.WriteLine("От 6 до 12 символов.");
+            Console.WriteLine("Как минимум один символ верхнего регистра.");
+            Console.WriteLine("Как минимум одно число.");
+            Console.WriteLine("Как минимум один специальный символ(!@#$%^&*()_+=\\[{\\]};:<>|./?-).");
             Console.WriteLine();
             Console.Write("Введите пароль: ");
             string? password = Console.ReadLine();
-            Console.Write("Введите пароль(второй раз): ");
+            Console.Write("Введите пароль(повторно): ");
             string? repeatedPassword = Console.ReadLine();
 
             Console.Clear();
@@ -58,8 +58,8 @@ namespace Configurator.Views.Auth
                 while (!shouldExit)
                 {
                     Console.WriteLine("Аккаунт не зарегистрирован:");
-                    Console.WriteLine("Один из пунктов не соответствует заданным требованиям");
-                    Console.WriteLine("Также возможно, что аккаунт с таким именем пользователя уже существует");
+                    Console.WriteLine("Один из пунктов не соответствует заданным требованиям.");
+                    Console.WriteLine("Также возможно, что аккаунт с таким именем пользователя уже существует.");
                     Console.WriteLine();
                     Console.WriteLine("Повторить попытку регистрации?");
                     Console.WriteLine("1 - да.");
@@ -83,7 +83,7 @@ namespace Configurator.Views.Auth
                             break;
                         default:
                             shouldExit = true;
-                            Console.WriteLine("Неверный выбор");
+                            Console.WriteLine("Неверный выбор.");
                             break;
                     }
                 }

@@ -20,6 +20,6 @@ namespace Configurator.Models.Components
             Type = ComponentType.SoundCard;
         }
 
-        public string Form {  get; set; }
+        public string Form { get; set; } = null!;
     }
 }

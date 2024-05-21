@@ -34,7 +34,7 @@ namespace Configurator.Models.Components
 
         //[Required]
         //[Column(TypeName = "int")]
-        public string Socket {  get; set; }
+        public string Socket { get; set; } = null!;
         public bool DDR4 { get; set; }
         public bool DDR5 { get; set; }
         public bool M2 {  get; set; }
