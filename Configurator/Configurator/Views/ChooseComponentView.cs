@@ -30,6 +30,8 @@ namespace Configurator.Views
 
         public void Show()
         {
+            try 
+            { 
             int pageNumber = 0; // Номер текущей страницы
 
             _componentList = _componentRepository.GetAll();
@@ -39,52 +41,66 @@ namespace Configurator.Views
                 IEnumerable<PCComponent> itemsToShow = _componentList.Skip(pageNumber * pageSize).Take(pageSize).ToList();
 
                 Console.Clear();
-                Console.WriteLine($"Страница {pageNumber + 1}");
+                Console.WriteLine($"Страница {pageNumber + 1}.");
                 foreach (var item in itemsToShow)
                 {
-                    Console.WriteLine($"{item.Id} {item.Name}");
+                    Console.WriteLine($"Id {item.Id} Название: {item.Name} Производитель: {item.Manufacturer} Стоимость: {item.Price} Наличие: {item.Price}.");
                 }
 
                 Console.WriteLine();
                 Console.WriteLine("Команды:");
-                Console.WriteLine("[>] - следующая страница");
-                Console.WriteLine("[<] - предыдущая страница");
-                Console.WriteLine("[Esc] - выход");
-                Console.WriteLine("[Enter] - выбрать комплектующее");
+                Console.WriteLine("[>] - следующая страница.");
+                Console.WriteLine("[<] - предыдущая страница.");
+                Console.WriteLine("[Esc] - выход.");
+                Console.WriteLine("[Enter] - выбрать комплектующее.");
 
                 var command = Console.ReadKey().Key;
 
-                switch (command)
-                {
-                    case ConsoleKey.RightArrow:
-                        if(itemsToShow.Any()) pageNumber++;
-                        break;
-                    case ConsoleKey.LeftArrow:
-                        pageNumber = (pageNumber > 0) ? pageNumber - 1 : 0;
-                        break;
-                    case ConsoleKey.Escape:
-                        _viewController.ChangeState(new ChoosingComponentTypeView(_viewController));
-                        _viewController.ShowCurrentView();
-                        return;
-                    case ConsoleKey.Enter:
-                        ChooseComponent();
-                        Console.Clear();
-                        ConsolePCPrinter.PrintComponents(UserSession.GetInstance().PcBuilder.Components);
-                        Console.ReadKey();
-                        _viewController.ChangeState(new ChoosingComponentTypeView(_viewController));
-                        _viewController.ShowCurrentView();
-                        return;
+                    switch (command)
+                    {
+                        case ConsoleKey.RightArrow:
+                            if (itemsToShow.Any()) pageNumber++;
+                            break;
+                        case ConsoleKey.LeftArrow:
+                            pageNumber = (pageNumber > 0) ? pageNumber - 1 : 0;
+                            break;
+                        case ConsoleKey.Escape:
+                            _viewController.ChangeState(new ChoosingComponentTypeView(_viewController));
+                            _viewController.ShowCurrentView();
+                            return;
+                        case ConsoleKey.Enter:
+                            ChooseComponent();
+                            Console.Clear();
+                            ConsolePCPrinter.PrintComponents(UserSession.GetInstance().PcBuilder.Components);
+                            Console.ReadKey();
+                            _viewController.ChangeState(new ChoosingComponentTypeView(_viewController));
+                            _viewController.ShowCurrentView();
+                            Console.WriteLine("Чтобы продолжить нажмите любую клавишу.");
+                            Console.ReadKey();
+                            return;
+                    }
                 }
+            }
+            catch(Exception e)
+            {
+                Console.Clear();
+                Console.WriteLine("Произошла ошибка:");
+                Console.WriteLine(e.Message); // Вывод сообщения об ошибке
+                Console.WriteLine("Чтобы повторить попытку нажмите любую клавишу.");
+                Console.ReadKey();
+                _viewController.ShowCurrentView();
+                return;
             }
         }
 
         private void ChooseComponent()
         {
-            int choiceId = ConsoleInput.ReadInteger("Введите ID комплектующего");
+            int choiceId = ConsoleInput.ReadInteger("Введите ID комплектующего.");
 
             var foundedComponent = _componentList.FirstOrDefault(c => c.Id == choiceId);
             if (foundedComponent != null)
             {
+
                 if (UserSession.GetInstance().PcBuilder.HasComponentOfType(foundedComponent.Type))
                 {
                     Console.WriteLine("В текущей сборке присутствует компонент этого типа.");
@@ -105,7 +121,7 @@ namespace Configurator.Views
                             break;
                         default:
                             break;
-                    }    
+                    }
                 }
                 else
                 {
@@ -116,7 +132,7 @@ namespace Configurator.Views
             else
             {
                 Console.WriteLine("Компонент с таким ID не найден.");
-            }
+            }      
         }
     }
 }

@@ -24,48 +24,62 @@ namespace Configurator.Views.Auth
 
         public void Show()
         {
-            Console.Clear();
-
-            string? login = ConsoleInput.ReadString("Введите логин:");
-
-            Console.WriteLine("Введите пароль: ");
-            string? password = ReadPassword();
-
-            Console.Clear();
-
-            var authService = new AuthenticationService(new SQLUserRepository(new UserDbContext()));
-
-            var user = authService.AuthenticateUser(login, password);
-
-            if (user == null) 
+            try
             {
-                Console.WriteLine("Вход не выполнен, введён неправильный логин или пароль.");
-                Console.WriteLine("нажмите любую клавишу для продолжения");
-                Console.ReadKey();
-                _viewController.ChangeState(new EnterView(_viewController));
-                _viewController.ShowCurrentView();
-            }
-            else
-            {
-                UserSession.GetInstance().CurrentUser = user;
-                Console.WriteLine("Вход выполнен успешно, нажмите любую клавишу для продолжения");
-                Console.ReadKey();
-                switch (UserSession.GetInstance().CurrentUser.UserRole)
+                Console.Clear();
+
+                string? login = ConsoleInput.ReadString("Введите логин:");
+
+                Console.WriteLine("Введите пароль: ");
+                string? password = ReadPassword();
+
+                Console.Clear();
+
+                var authService = new AuthenticationService(new SQLUserRepository(new UserDbContext()));
+
+                var user = authService.AuthenticateUser(login, password);
+
+                if (user == null)
                 {
-                    case Role.User:
-                        _viewController.ChangeState(new MainMenuView(new SQLUserRepository(new UserDbContext()),_viewController));
-                        break;
-                    case Role.Admin:
-                        _viewController.ChangeState(new AdminActionsMenu(_viewController));
-                        break;
-                    case Role.Director:
-                        _viewController.ChangeState(new AdminActionsMenu(_viewController));
-                        break;
-                    default:
-                        _viewController.ChangeState(new EnterView(_viewController));
-                        break;
+                    Console.WriteLine("Вход не выполнен, введён неправильный логин или пароль.");
+                    Console.WriteLine("нажмите любую клавишу для продолжения");
+                    Console.ReadKey();
+                    _viewController.ChangeState(new EnterView(_viewController));
+                    _viewController.ShowCurrentView();
                 }
+                else
+                {
+                    UserSession.GetInstance().CurrentUser = user;
+                    Console.WriteLine("Вход выполнен успешно, нажмите любую клавишу для продолжения");
+                    Console.ReadKey();
+                    switch (UserSession.GetInstance().CurrentUser.UserRole)
+                    {
+                        case Role.User:
+                            _viewController.ChangeState(new MainMenuView(new SQLUserRepository(new UserDbContext()), _viewController));
+                            break;
+                        case Role.Admin:
+                            _viewController.ChangeState(new AdminActionsMenu(_viewController));
+                            break;
+                        case Role.Director:
+                            _viewController.ChangeState(new AdminActionsMenu(_viewController));
+                            break;
+                        default:
+                            _viewController.ChangeState(new EnterView(_viewController));
+                            break;
+                    }
+                    _viewController.ShowCurrentView();
+                    return;
+                }
+            }
+            catch (Exception e)
+            {
+                Console.Clear();
+                Console.WriteLine("Произошла ошибка:");
+                Console.WriteLine(e.Message); // Вывод сообщения об ошибке
+                Console.WriteLine("Чтобы повторить попытку нажмите любую клавишу.");
+                Console.ReadKey();
                 _viewController.ShowCurrentView();
+                return;
             }
         }
 

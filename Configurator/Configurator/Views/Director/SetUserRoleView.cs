@@ -26,20 +26,16 @@ namespace Configurator.Views.Director
             Console.Clear();
             Console.WriteLine("Назначить роль пользователя.");
 
-            string userName = ConsoleInput.ReadString("Имя пользователя: ");
+            string userName = ConsoleInput.ReadString("Имя пользователя (для выхода введите '0'): ");
 
-            // Проверить, отличается ли введенное имя пользователя от текущего имени пользователя
-            if (userName == UserSession.GetInstance().CurrentUser.Username)
+            if (userName == "0")
             {
-                Console.WriteLine("Вы не можете изменить свою роль.");
-                Console.WriteLine("Нажмите любую клавишу чтобы продолжить.");
-                Console.ReadKey();
-                _viewController.ChangeState(this);
+                _viewController.ChangeState(new DirectorMenuView(_viewController));
                 _viewController.ShowCurrentView();
                 return;
             }
 
-            User? foundedUser = null;
+            User? foundedUser;
             try
             {
                 // Найти пользователя с указанным именем пользователя

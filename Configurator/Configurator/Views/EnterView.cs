@@ -21,34 +21,45 @@ namespace Configurator.Views
 
         public void Show()
         {
-            bool shouldExit = false;
-
-            while (!shouldExit)
+            while (true)
             {
-            Console.Clear();
-            Console.WriteLine("0. Выйти из приложения");
-            Console.WriteLine("1. Войти в аккаунт");
-            Console.WriteLine("2. Регистрация аккаунта");
-            Console.WriteLine();
-            Console.WriteLine("Введите номер действия и нажмите enter: ");
+                try
+                {
+                    Console.Clear();
+                    Console.WriteLine("0. Выйти из приложения.");
+                    Console.WriteLine("1. Войти в аккаунт.");
+                    Console.WriteLine("2. Регистрация аккаунта.");
+                    Console.WriteLine();
+                    Console.WriteLine("Введите номер действия и нажмите enter.");
 
-            int choice = ConsoleInput.ReadInteger("Выбор: ");
+                    int choice = ConsoleInput.ReadInteger("Выбор:");
 
-            switch (choice)
-            {
-                case 0:
-                    Environment.Exit(0); 
-                    return;
-                case 1:
-                    _viewController.ChangeState(new AuthView(_viewController));
-                    _viewController.ShowCurrentView();
-                    return;
-                case 2:
-                    _viewController.ChangeState(new RegistrationView(_viewController));
-                    _viewController.ShowCurrentView();
-                    return;
-                default:
-                    Console.WriteLine("Неверный выбор, нажмите любую клавишу для продолжения");
+                    switch (choice)
+                    {
+                        case 0:
+                            Environment.Exit(0);
+                            return;
+                        case 1:
+                            _viewController.ChangeState(new AuthView(_viewController));
+                            _viewController.ShowCurrentView();
+                            return;
+                        case 2:
+                            _viewController.ChangeState(new RegistrationView(_viewController));
+                            _viewController.ShowCurrentView();
+                            return;
+                        default:
+                            Console.WriteLine("Неверный выбор, нажмите любую клавишу для продолжения.");
+                            Console.ReadKey();
+                            _viewController.ShowCurrentView();
+                            return;
+                    }
+                }
+                catch(Exception e) 
+                {
+                    Console.Clear();
+                    Console.WriteLine("Произошла ошибка:");
+                    Console.WriteLine(e.Message); // Вывод сообщения об ошибке
+                    Console.WriteLine("Чтобы повторить попытку нажмите любую клавишу.");
                     Console.ReadKey();
                     _viewController.ShowCurrentView();
                     return;
