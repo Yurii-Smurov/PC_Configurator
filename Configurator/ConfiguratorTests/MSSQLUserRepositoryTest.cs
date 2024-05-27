@@ -12,10 +12,10 @@ namespace ConfiguratorTests
     [TestClass]
     public class MSSQLUserRepositoryTest
     {
-        private SQLUserRepository _repos;
-        private PC _pc;
-        private User _user;
-        private UserDbContext _db;
+        private SQLUserRepository? _repos;
+        private PC? _pc;
+        private User? _user;
+        private UserDbContext? _db;
 
         [TestInitialize]
         public void TestInitialize()
@@ -23,9 +23,15 @@ namespace ConfiguratorTests
             Debug.WriteLine("Test Initialize");
             _repos = new SQLUserRepository(new UserDbContext());
             _pc = new PCBuilder()
-                .AddComponent(new Processor("intel", 15000, "i5", 500, "lg1700", true, true, true, 117))
-                .AddComponent(new GraphicsCard("nvidia", 150000, "rtx4090", 1500, "1", "gddr6", 2400, 512))
-                .Build();
+            .AddComponent(new Processor())
+            .AddComponent(new GraphicsCard())
+            .AddComponent(new Motherboard())
+            .AddComponent(new PowerUnit())
+            .AddComponent(new ComputerCase())
+            .AddComponent(new Memory())
+            .AddComponent(new SSD())
+            .AddComponent(new AirCoolingSystem())
+            .Build();
             _user = new User("TestUser", "TestPassword", "testMail@test.com");
         }
 
