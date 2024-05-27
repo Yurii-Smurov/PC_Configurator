@@ -1,12 +1,5 @@
-﻿using Configurator.Views.Admin;
-using Configurator.Views.Auth;
-using Configurator.Views.Director;
+﻿using Configurator.Views.Auth;
 using Configurator.Views.UserInput;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Configurator.Views
 {

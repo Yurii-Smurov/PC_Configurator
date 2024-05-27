@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Configurator.Models.PCBuider;
+﻿using Configurator.Models.PCBuider;
 
 namespace Configurator.Models.UserModels
 {

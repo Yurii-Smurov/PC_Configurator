@@ -1,15 +1,7 @@
-﻿using Configurator.Authentication;
-using Configurator.Services.RegistrationService;
+﻿using Configurator.Services.RegistrationService;
 using Configurator.Repositories.MSSQL;
 using Configurator.Repositories.Interface;
 using Configurator.Views.UserInput;
-using Configurator.Models.UserModels;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Runtime.Serialization;
 
 namespace Configurator.Views.Auth
 {

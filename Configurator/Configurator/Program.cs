@@ -1,15 +1,4 @@
-﻿using Configurator;
-using Configurator.Models.Components;
-using Configurator.Models.PCBuider;
-using Configurator.Models.UserModels;
-using Configurator.Views.Utils;
-using Configurator.Views;
-using Configurator.Repositories;
-using Configurator.Repositories.MSSQL;
-using Configurator.Authentication;
-using Configurator.Views.Auth;
-using Microsoft.EntityFrameworkCore;
-using Microsoft.EntityFrameworkCore.Metadata.Internal;
+﻿using Configurator.Views;
 
 class Program
 {

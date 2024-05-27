@@ -1,11 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Configurator.Models.Components;
-using Configurator.Models.PCBuider;
+﻿using Configurator.Models.Components;
 
 namespace Configurator.Views.Utils
 {

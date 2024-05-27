@@ -1,13 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Configurator.Models.Components;
+﻿using Configurator.Models.Components;
 using Microsoft.EntityFrameworkCore;
-using System.Data.SqlClient;
-using System.ComponentModel;
-using System.Runtime.Intrinsics.Arm;
 using Microsoft.Extensions.Configuration;
 
 namespace Configurator

@@ -1,11 +1,6 @@
 ﻿using Configurator.Views.Admin;
 using Configurator.Views.UserInput;
 using Configurator.Repositories.MSSQL;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Configurator.Views.Director
 {

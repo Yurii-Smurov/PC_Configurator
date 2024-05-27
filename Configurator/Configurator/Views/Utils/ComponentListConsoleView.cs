@@ -1,11 +1,4 @@
 ﻿using Configurator.Models.Components;
-using Configurator.Repositories.MSSQL;
-using Configurator.Repositories.Interface;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Configurator.Repositories;
 
 namespace Configurator.Views.Utils

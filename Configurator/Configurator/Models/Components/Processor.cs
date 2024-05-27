@@ -1,14 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations.Schema;
-using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Net.Sockets;
-using System.Runtime.Intrinsics.Arm;
-
-namespace Configurator.Models.Components
+﻿namespace Configurator.Models.Components
 {
     /// <summary>
     /// Класс процессора

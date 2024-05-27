@@ -1,14 +1,7 @@
 ﻿using Configurator.Models.UserModels;
 using Configurator.Repositories.Interface;
 using Configurator.Models.PCBuider;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
-using Configurator.Models.Components;
-using System.Runtime.CompilerServices;
 
 namespace Configurator.Repositories.MSSQL
 {

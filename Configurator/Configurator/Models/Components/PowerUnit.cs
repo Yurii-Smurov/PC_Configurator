@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Configurator.Models.Components
+﻿namespace Configurator.Models.Components
 {
     sealed class PowerUnit : PCComponent
     {
@@ -21,7 +15,7 @@ namespace Configurator.Models.Components
             Type = ComponentType.PowerUnit;
         }
 
-        public string Form {  get; set; }
+        public string Form {  get; set; } = String.Empty;
 
     }
 }

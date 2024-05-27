@@ -1,18 +1,9 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.Linq;
-using System.Net.Sockets;
-using System.Text;
-using System.Threading.Tasks;
-using Configurator.Models.Components;
+﻿using Configurator.Models.Components;
 using Configurator.Models.UserModels;
 using Configurator.Repositories;
 using Configurator.Repositories.MSSQL;
 using Configurator.Views.Director;
 using Configurator.Views.UserInput;
-using Microsoft.EntityFrameworkCore.Metadata.Internal;
 
 namespace Configurator.Views.Admin
 {

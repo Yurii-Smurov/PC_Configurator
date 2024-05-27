@@ -1,12 +1,6 @@
 ﻿using Configurator.Models.UserModels;
 using Configurator.Repositories.Interface;
-using Configurator.Repositories.MSSQL;
 using Configurator.Views.UserInput;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Configurator.Views.Director
 {

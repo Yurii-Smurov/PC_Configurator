@@ -5,12 +5,6 @@ using Configurator.Repositories.MSSQL;
 using Configurator.Views.Director;
 using Configurator.Views.UserInput;
 using Configurator.Views.Utils;
-using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Configurator.Views.Admin
 {

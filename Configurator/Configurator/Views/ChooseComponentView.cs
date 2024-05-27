@@ -1,14 +1,6 @@
 ﻿using Configurator.Models.Components;
 using Configurator.Models.UserModels;
-using Configurator.Repositories.MSSQL;
 using Configurator.Views.Utils;
-using Configurator.Repositories.Interface;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Runtime.ExceptionServices;
-using System.Text;
-using System.Threading.Tasks;
 using Configurator.Repositories;
 using Configurator.Views.UserInput;
 

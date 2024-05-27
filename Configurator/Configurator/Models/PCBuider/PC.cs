@@ -1,13 +1,5 @@
 ﻿using Configurator.Models.Components;
 using Configurator.Models.UserModels;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Linq;
-using System.Reflection.Metadata;
-using System.Text;
-using System.Threading.Tasks;
-
 namespace Configurator.Models.PCBuider
 {
     class PC
