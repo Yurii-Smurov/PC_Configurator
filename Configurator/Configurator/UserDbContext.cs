@@ -9,6 +9,7 @@ using Configurator.Models.UserModels;
 using Microsoft.Identity.Client.Extensions.Msal;
 using System.Runtime.Intrinsics.Arm;
 using Configurator.Models.PCBuider;
+using Microsoft.Extensions.Configuration;
 
 namespace Configurator
 {
@@ -25,7 +26,13 @@ namespace Configurator
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlServer("Server=(local);Database=Users;Trusted_Connection=True;TrustServerCertificate=True;");
+            var configuration = new ConfigurationBuilder()
+                .SetBasePath(Directory.GetCurrentDirectory())
+                .AddJsonFile("appsettings.json")
+                .Build();
+
+            string? connectionString = configuration["ConnectionStrings:Users"];
+            optionsBuilder.UseSqlServer(connectionString);
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)

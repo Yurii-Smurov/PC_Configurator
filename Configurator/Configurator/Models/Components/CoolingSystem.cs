@@ -23,7 +23,7 @@ namespace Configurator.Models.Components
             TdpDIS = tdpDIS;
         }
 
-        public string Socket { get; set; }
+        public string Socket { get; set; } = String.Empty;
         public int Speed { get; set; }
         public int TdpDIS { get; set; }
     }

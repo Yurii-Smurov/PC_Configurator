@@ -24,8 +24,8 @@ namespace Configurator.Models.Components
             Type = ComponentType.GraphicsCard;
         }
 
-        public string ModelGPU { get; set; }
-        public string TypeMEM { get; set; }
+        public string ModelGPU { get; set; } = null!;
+        public string TypeMEM { get; set; } = null!;
         public int Freq { get; set; }
         public int Volume { get; set; }
 

@@ -18,7 +18,7 @@ namespace Configurator.Services.RegistrationService
             _userRepository = userRepository;
         }
 
-        public bool RegisterUser(string? username, string? password, string? repeatedPassword, string? mail)
+        public bool RegisterUser(string username, string password, string repeatedPassword, string mail)
         {
             IValidator passwordValidator = new PasswordValidator();
             IValidator loginValidator = new LoginValidator();

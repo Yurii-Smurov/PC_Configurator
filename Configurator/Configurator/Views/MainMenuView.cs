@@ -1,13 +1,5 @@
 ﻿using Configurator.Models.UserModels;
 using Configurator.Models.PCBuider;
-using Configurator.Models.Components;
-using System;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Configurator.Repositories.MSSQL;
 using Configurator.Views.Utils;
 using Configurator.Views.UserInput;
 using Configurator.Repositories.Interface;
@@ -38,7 +30,7 @@ namespace Configurator.Views
                     Console.WriteLine("0. Выйти из приложения.");
                     Console.WriteLine("1. Начать или продолжить сборку ПК.");
                     Console.WriteLine("2. Завершить сборку ПК.");
-                    Console.WriteLine("3. Посмотреть готовые сборки текущего пользователя.");
+                    Console.WriteLine("3. Посмотреть/удалить готовые сборки текущего пользователя.");
 
                     int choice = ConsoleInput.ReadInteger("Выбор: ");
 
@@ -77,6 +69,33 @@ namespace Configurator.Views
                                 Console.WriteLine($"Сборка пользователя {UserSession.GetInstance().CurrentUser.Username}: {pc.PCId}.");
                                 ConsolePCPrinter.PrintComponents(pc.Components);
                                 Console.WriteLine();
+                            }
+                            Console.WriteLine("Нажмите ESC для продолжения.");
+                            Console.WriteLine("Чтобы удалить сборку нажмите Enter.");
+                            var key = Console.ReadKey();
+                            if (key.Key == ConsoleKey.Enter)
+                            {
+                                int pcId = ConsoleInput.ReadInteger("Введите ID удаляемой сборки:");
+                                var pc = UserSession.GetInstance().CurrentUser.PCs.FirstOrDefault(p => p.PCId == pcId);
+                                if (pc == null)
+                                {
+                                    Console.WriteLine("Сборка с указанным ID не найдена.");
+                                }
+                                else
+                                {
+                                    _userRepository.DeletePC(pcId, UserSession.GetInstance().CurrentUser);
+                                    _userRepository.RefreshUserSession();
+                                    Console.WriteLine("Сборка удалена.");
+                                }
+                            }
+                            else if (key.Key == ConsoleKey.Escape)
+                            {
+                                _viewController.ShowCurrentView();
+                                return;
+                            }
+                            else
+                            {
+                                Console.WriteLine("Неверный ввод.");
                             }
                             Console.WriteLine("Нажмите любую клавишу для продолжения.");
                             Console.ReadKey();

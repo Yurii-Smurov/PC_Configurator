@@ -29,9 +29,9 @@ namespace Configurator.Models.Components
 
 
 
-        public string Form {  get; set; }
-        public string Chipset { get; set; }
-        public string Socket { get; set; }
+        public string Form {  get; set; } = String.Empty;
+        public string Chipset { get; set; } = String.Empty;
+        public string Socket { get; set; } = String.Empty;
         public bool DDR4 { get; set; }
         public bool DDR5 { get; set; }
         public bool M2 { get; set; }

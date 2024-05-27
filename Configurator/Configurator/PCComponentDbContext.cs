@@ -8,6 +8,7 @@ using Microsoft.EntityFrameworkCore;
 using System.Data.SqlClient;
 using System.ComponentModel;
 using System.Runtime.Intrinsics.Arm;
+using Microsoft.Extensions.Configuration;
 
 namespace Configurator
 {
@@ -42,7 +43,13 @@ namespace Configurator
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlServer("Server=(local);Database=PCComponents;Trusted_Connection=True;TrustServerCertificate=True;");
+            var configuration = new ConfigurationBuilder()
+                .SetBasePath(Directory.GetCurrentDirectory())
+                .AddJsonFile("appsettings.json")
+                .Build();
+
+            string? connectionString = configuration["ConnectionStrings:PCComponents"];
+            optionsBuilder.UseSqlServer(connectionString);
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)

@@ -2,6 +2,7 @@
 using Configurator.Services.RegistrationService;
 using Configurator.Repositories.MSSQL;
 using Configurator.Repositories.Interface;
+using Configurator.Views.UserInput;
 using Configurator.Models.UserModels;
 using System;
 using System.Collections.Generic;
@@ -26,8 +27,7 @@ namespace Configurator.Views.Auth
         public void Show()
         {
             Console.Clear();
-            Console.Write("Введите логин: ");
-            string? login = Console.ReadLine();
+            string login = ConsoleInput.ReadString("Введите логин:");
 
             Console.Clear();
 
@@ -38,15 +38,12 @@ namespace Configurator.Views.Auth
             Console.WriteLine("Как минимум одно число.");
             Console.WriteLine("Как минимум один специальный символ(!@#$%^&*()_+=\\[{\\]};:<>|./?-).");
             Console.WriteLine();
-            Console.Write("Введите пароль: ");
-            string? password = Console.ReadLine();
-            Console.Write("Введите пароль(повторно): ");
-            string? repeatedPassword = Console.ReadLine();
+            string password = ConsoleInput.ReadString("Введите пароль:");
+            string repeatedPassword = ConsoleInput.ReadString("Введите пароль(повторно):");
 
             Console.Clear();
 
-            Console.Write("Введите свою почту: ");
-            string? email = Console.ReadLine();
+            string email = ConsoleInput.ReadString("Введите свою почту:");
 
             var regService = new RegistrationService(_userRepository);
             if (!regService.RegisterUser(login, password, repeatedPassword, email))
@@ -91,7 +88,9 @@ namespace Configurator.Views.Auth
             else
             {
                 Console.WriteLine("Аккаунт зарегистрирован!");
-                _viewController.ChangeState(new AuthView(_viewController));
+                Console.WriteLine("Нажмите любую клавишу для продолжения.");
+                Console.ReadKey();
+                _viewController.ChangeState(new EnterView(_viewController));
                 _viewController.ShowCurrentView();
             }
         }

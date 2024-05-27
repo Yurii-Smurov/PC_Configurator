@@ -15,11 +15,11 @@ namespace Configurator.Models.Components
 
         public ComputerCase(string name, decimal price, string manufacturer, int stock, string form) : base(name, price, manufacturer, stock)
         {
-            Form = Form;
+            Form = form;
 
             Type = ComponentType.ComputerCase;
         }
 
-        public string Form { get; set; }
+        public string Form { get; set; } = String.Empty;
     }
 }

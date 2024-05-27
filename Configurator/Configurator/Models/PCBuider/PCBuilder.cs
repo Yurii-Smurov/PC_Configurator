@@ -13,7 +13,7 @@ namespace Configurator.Models.PCBuider
     /// </summary>
     class PCBuilder
     {
-        public ICollection<PCComponent> Components = new List<PCComponent>();
+        public ICollection<PCComponent> Components = [];
         public PCBuilder AddComponent(PCComponent component)
         {
             //if (!HasComponentOfType(component.Type))

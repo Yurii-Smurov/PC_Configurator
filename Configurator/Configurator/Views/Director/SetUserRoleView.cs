@@ -26,7 +26,7 @@ namespace Configurator.Views.Director
             Console.Clear();
             Console.WriteLine("Назначить роль пользователя.");
 
-            string userName = ConsoleInput.ReadString("Имя пользователя (для выхода введите '0'): ");
+            string userName = ConsoleInput.ReadString("Введите имя пользователя (для выхода введите '0'): ");
 
             if (userName == "0")
             {

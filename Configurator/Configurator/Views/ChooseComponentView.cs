@@ -20,7 +20,7 @@ namespace Configurator.Views
         private readonly ViewController _viewController;
         private readonly IComponentRepository<T> _componentRepository;
         private readonly int pageSize = 10; // Количество элементов на странице
-        private IEnumerable<PCComponent>? _componentList;
+        private IEnumerable<PCComponent> _componentList = [];
 
         public ChooseComponentView(ViewController viewController, IComponentRepository<T> componentRepository)
         {
