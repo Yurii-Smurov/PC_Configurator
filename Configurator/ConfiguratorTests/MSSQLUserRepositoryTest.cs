@@ -1,24 +1,22 @@
 using System.Diagnostics;
-using System.Runtime.CompilerServices;
 using Configurator;
 using Configurator.Models.Components;
 using Configurator.Models.PCBuider;
 using Configurator.Models.UserModels;
 using Configurator.Repositories.MSSQL;
-using Microsoft.EntityFrameworkCore;
+using NUnit.Framework;
+using NUnit.Framework.Legacy;
 
 namespace ConfiguratorTests
 {
-    [TestClass]
+    [TestFixture]
     public class MSSQLUserRepositoryTest
     {
         private SQLUserRepository? _repos;
         private PC? _pc;
         private User? _user;
-        private UserDbContext? _db;
-
-        [TestInitialize]
-        public void TestInitialize()
+        [SetUp]
+        public void SetUp()
         {
             Debug.WriteLine("Test Initialize");
             _repos = new SQLUserRepository(new UserDbContext());
@@ -36,7 +34,7 @@ namespace ConfiguratorTests
         }
 
         // Тест добавления пользователя в БД
-        [TestMethod]
+        [Test]
         public void AddUser_ShouldAddUserToDatabase()
         {
             // Act
@@ -44,11 +42,11 @@ namespace ConfiguratorTests
 
             // Assert
             var addedUser = _repos.GetUserByUsername("TestUser");
-            Assert.IsNotNull(addedUser);
+            ClassicAssert.IsNotNull(addedUser);
         }
 
         // Тест получения данных о существующем пользователе из БД по имени
-        [TestMethod]
+        [Test]
         public void GetUserByUsername_ReturnsUser_WhenUsernameExists()
         {
             string username = "TestUser1";
@@ -57,24 +55,24 @@ namespace ConfiguratorTests
             var user = _repos.GetUserByUsername(username);
 
             // Assert
-            Assert.IsNotNull(user);
-            Assert.AreEqual(username, user.Username);
+            ClassicAssert.IsNotNull(user);
+            ClassicAssert.AreEqual(username, user.Username);
             Debug.WriteLine($"expected: {username}, actual: {user.Username}");
         }
 
         // Тест получения данных о несуществующем пользователе из БД по имени
-        [TestMethod]
+        [Test]
         public void GetUserByUsername_ReturnsNull_WhenUsernameDoesNotExist()
         {
             // Act
             _user = _repos.GetUserByUsername("nonexistentuser");
 
             // Assert
-            Assert.IsNull(_user);
+            ClassicAssert.IsNull(_user);
         }
 
         // Тест добавления ПК к существующему пользователю
-        [TestMethod]
+        [Test]
         public void AddPC_AddsPcForUser_WhenUserExists()
         {
             _repos.AddUser(_user);
@@ -84,9 +82,9 @@ namespace ConfiguratorTests
             _repos.RefreshUserSession();
             // Assert
             var addedPc = UserSession.GetInstance().CurrentUser.PCs.FirstOrDefault(p => p.PCId == 1);
-            Assert.IsNotNull(addedPc);
+            ClassicAssert.IsNotNull(addedPc);
             Debug.WriteLine("ПК найден");
-            Assert.AreEqual(UserSession.GetInstance().CurrentUser.UserId, addedPc.User.UserId);
+            ClassicAssert.AreEqual(UserSession.GetInstance().CurrentUser.UserId, addedPc.User.UserId);
             Debug.WriteLine("ПК принадлежит заданному пользователю");
         }
     }

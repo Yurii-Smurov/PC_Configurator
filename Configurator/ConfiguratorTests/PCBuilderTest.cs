@@ -1,12 +1,14 @@
 ﻿using Configurator.Models.Components;
 using Configurator.Models.PCBuider;
+using NUnit.Framework;
+using NUnit.Framework.Legacy;
 
 namespace ConfiguratorTests
 {
-    [TestClass]
+    [TestFixture]
     class PCBuilderTest
     {
-        [TestMethod]
+        [Test]
         public void AddComponent_AddsComponentToList()
         {
             // Arrange
@@ -17,10 +19,10 @@ namespace ConfiguratorTests
             pcBuilder.AddComponent(component);
 
             // Assert
-            Assert.IsTrue(pcBuilder.Components.Contains(component));
+            ClassicAssert.IsTrue(pcBuilder.Components.Contains(component));
         }
 
-        [TestMethod]
+        [Test]
         public void RemoveComponent_RemovesComponentFromList()
         {
             // Arrange
@@ -32,10 +34,10 @@ namespace ConfiguratorTests
             pcBuilder.RemoveComponent(ComponentType.Processor);
 
             // Assert
-            Assert.IsFalse(pcBuilder.Components.Contains(component));
+            ClassicAssert.IsFalse(pcBuilder.Components.Contains(component));
         }
 
-        [TestMethod]
+        [Test]
         public void Build_ReturnsPCObjectIfValidConfiguration()
         {
             // Arrange
@@ -53,10 +55,10 @@ namespace ConfiguratorTests
             PC? pc = pcBuilder.Build();
 
             // Assert
-            Assert.IsNotNull(pc);
+            ClassicAssert.IsNotNull(pc);
         }
 
-        [TestMethod]
+        [Test]
         public void Build_ReturnsNullIfInvalidConfiguration()
         {
             // Arrange
@@ -68,10 +70,10 @@ namespace ConfiguratorTests
             PC? pc = pcBuilder.Build();
 
             // Assert
-            Assert.IsNull(pc);
+            ClassicAssert.IsNull(pc);
         }
 
-        [TestMethod]
+        [Test]
         public void HasComponentOfType_ReturnsTrueIfComponentTypeExists()
         {
             // Arrange
@@ -83,10 +85,10 @@ namespace ConfiguratorTests
             bool result = pcBuilder.HasComponentOfType(ComponentType.GraphicsCard);
 
             // Assert
-            Assert.IsTrue(result);
+            ClassicAssert.IsTrue(result);
         }
 
-        [TestMethod]
+        [Test]
         public void HasComponentOfType_ReturnsFalseIfComponentTypeDoesNotExist()
         {
             // Arrange
@@ -96,7 +98,7 @@ namespace ConfiguratorTests
             bool result = pcBuilder.HasComponentOfType(ComponentType.Memory);
 
             // Assert
-            Assert.IsFalse(result);
+            ClassicAssert.IsFalse(result);
         }
     }
 }
