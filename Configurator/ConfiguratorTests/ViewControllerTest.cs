@@ -1,5 +1,4 @@
 ﻿using Configurator.Views;
-using Configurator.Views.Auth;
 using Moq;
 using NUnit.Framework;
 using NUnit.Framework.Legacy;
